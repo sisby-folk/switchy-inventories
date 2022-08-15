@@ -2,24 +2,24 @@
 	"schema_version": 1,
 	"quilt_loader": {
 		"group": "folk.sisby",
-		"id": "switchy",
+		"id": "mu",
 		"version": "${version}",
 		"metadata": {
-			"name": "Switchy",
+			"name": "Mu",
 			"description": "Combines player personalization features from other mods into presets",
 			"contributors": {
 				"Sisby Folk": "Owner"
 			},
 			"contact": {
-				"homepage": "https://modrinth.com/mod/switchy",
-				"issues": "https://github.com/sisby-folk/switchy/issues",
-				"sources": "https://github.com/sisby-folk/switchy"
+				"homepage": "https://modrinth.com/mod/mu",
+				"issues": "https://github.com/sisby-folk/mu/issues",
+				"sources": "https://github.com/sisby-folk/mu"
 			},
-			"icon": "assets/switchy/icon.png"
+			"icon": "assets/mu/icon.png"
 		},
 		"intermediate_mappings": "net.fabricmc:intermediary",
 		"entrypoints": {
-			"init": "folk.sisby.switchy.Switchy"
+			"init": "folk.sisby.mu.Mu"
 		},
 		"depends": [
 			{
@@ -36,5 +36,5 @@
 			}
 		]
 	},
-	"mixin": "switchy.mixins.json"
+	"mixin": "mu.mixins.json"
 }

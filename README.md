@@ -1,3 +1,3 @@
-# Switch
+# mu
 
-A quilt mod that combines player personalization features from other mods into presets.
+A quilt mod that adds a dedicated quack button.
