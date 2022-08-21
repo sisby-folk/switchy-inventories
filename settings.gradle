@@ -16,11 +16,12 @@ pluginManagement {
 dependencyResolutionManagement {
 	versionCatalogs {
 		libs {
-			def mc = '1.18.2'
+			def mc_major = '1.18'
+			def mc = mc_major + '.2'
 			version('minecraft', mc)
 			version('ql', "0.17.3")
 			version('qsl', "1.1.0-beta.26+${mc}")
-			version('switchy', "1.2.0+${mc}")
+			version('switchy', "1.2.0+${mc_major}")
 
 			library('minecraft', 'mojang', 'minecraft').versionRef('minecraft')
 			library('ql', 'org.quiltmc', 'quilt-loader').versionRef('ql')
