@@ -2,24 +2,24 @@
 	"schema_version": 1,
 	"quilt_loader": {
 		"group": "folk.sisby",
-		"id": "mu",
+		"id": "switchy-inventories",
 		"version": "${version}",
 		"metadata": {
-			"name": "Mu",
-			"description": "Combines player personalization features from other mods into presets",
+			"name": "Switchy Inventories",
+			"description": "Multiple separate inventories using Switchy",
 			"contributors": {
 				"Sisby Folk": "Owner"
 			},
 			"contact": {
-				"homepage": "https://modrinth.com/mod/mu",
-				"issues": "https://github.com/sisby-folk/mu/issues",
-				"sources": "https://github.com/sisby-folk/mu"
+				"homepage": "https://modrinth.com/mod/switchy-inventories",
+				"issues": "https://github.com/sisby-folk/switchy-inventories/issues",
+				"sources": "https://github.com/sisby-folk/switchy-inventories"
 			},
-			"icon": "assets/mu/icon.png"
+			"icon": "assets/switchy-inventories/icon.png"
 		},
 		"intermediate_mappings": "net.fabricmc:intermediary",
 		"entrypoints": {
-			"init": "folk.sisby.mu.Mu"
+			"init": "folk.sisby.switchy_inventories.SwitchyInventories"
 		},
 		"depends": [
 			{
@@ -27,14 +27,13 @@
 				"versions": ">=0.17.0-"
 			},
 			{
-				"id": "quilted_fabric_api",
-				"versions": ">=4.0.0-"
+				"id": "switchy",
+				"versions": ">=1.2.0"
 			},
 			{
 				"id": "minecraft",
-				"versions": ">=1.19.2"
+				"versions": ">=1.18.2"
 			}
 		]
-	},
-	"mixin": "mu.mixins.json"
+	}
 }
