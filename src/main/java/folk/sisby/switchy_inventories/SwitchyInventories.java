@@ -1,6 +1,7 @@
 package folk.sisby.switchy_inventories;
 
 import folk.sisby.switchy_inventories.compat.InventoryCompat;
+import folk.sisby.switchy_inventories.compat.TrinketsCompat;
 import org.quiltmc.loader.api.ModContainer;
 import org.quiltmc.loader.api.QuiltLoader;
 import org.quiltmc.qsl.base.api.entrypoint.ModInitializer;
@@ -13,6 +14,11 @@ public class SwitchyInventories implements ModInitializer {
 
 	@Override
 	public void onInitialize(ModContainer mod) {
-		if (QuiltLoader.isModLoaded("switchy")) InventoryCompat.touch();
+		if (QuiltLoader.isModLoaded("switchy")) {
+			InventoryCompat.touch();
+		}
+		if (QuiltLoader.isModLoaded("trinkets")) {
+			TrinketsCompat.touch();
+		}
 	}
 }

@@ -14,6 +14,14 @@ repositories {
 	// See https://docs.gradle.org/current/userguide/declaring_repositories.html
 	// for more information about repositories.
 	mavenLocal()
+	maven {
+		name = "TerraformersMC"
+		url = "https://maven.terraformersmc.com/"
+	}
+	maven {
+		name = "Ladysnake Libs"
+		url = "https://ladysnake.jfrog.io/artifactory/mods"
+	}
 }
 
 // All the dependencies are declared at gradle/libs.version.toml and referenced with "libs.<id>"
@@ -27,9 +35,11 @@ dependencies {
 	modImplementation libs.ql
 	modImplementation libs.qsl
 
-	// // Compat // //
-
 	modImplementation libs.switchy
+
+	// // Compat // //
+	modCompileOnly libs.trinkets
+	modLocalRuntime libs.trinkets
 }
 
 processResources {
