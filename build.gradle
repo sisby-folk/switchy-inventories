@@ -40,6 +40,8 @@ dependencies {
 	// // Compat // //
 	modCompileOnly libs.trinkets
 	modLocalRuntime libs.trinkets
+	modCompileOnly libs.qfapi
+	modLocalRuntime libs.qfapi
 }
 
 processResources {

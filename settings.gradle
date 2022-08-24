@@ -30,7 +30,9 @@ dependencyResolutionManagement {
 
 			// Compat
 			version('trinkets', '3.3.1')
+			version('qfapi', "1.0.0-beta.24+0.58.0-${mc}")
 
+			library('qfapi', 'org.quiltmc.quilted-fabric-api', 'quilted-fabric-api', ).versionRef('qfapi')
 			library('trinkets', 'dev.emi', 'trinkets').versionRef('trinkets')
 		}
 	}
