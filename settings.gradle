@@ -16,11 +16,11 @@ pluginManagement {
 dependencyResolutionManagement {
 	versionCatalogs {
 		libs {
-			def mc_major = '1.18'
+			def mc_major = '1.19'
 			def mc = mc_major + '.2'
 			version('minecraft', mc)
 			version('ql', "0.17.3")
-			version('qsl', "1.1.0-beta.26+${mc}")
+			version('qsl', "3.0.0-beta.14+${mc}")
 			version('switchy', "1.2.2+${mc_major}")
 
 			library('minecraft', 'mojang', 'minecraft').versionRef('minecraft')
@@ -29,8 +29,8 @@ dependencyResolutionManagement {
 			library('switchy', 'folk.sisby', 'switchy').versionRef('switchy')
 
 			// Compat
-			version('trinkets', '3.3.1')
-			version('qfapi', "1.0.0-beta.24+0.58.0-${mc}")
+			version('trinkets', '3.4.0')
+			version('qfapi', "4.0.0-beta.9+0.60.0-${mc}")
 
 			library('qfapi', 'org.quiltmc.quilted-fabric-api', 'quilted-fabric-api', ).versionRef('qfapi')
 			library('trinkets', 'dev.emi', 'trinkets').versionRef('trinkets')

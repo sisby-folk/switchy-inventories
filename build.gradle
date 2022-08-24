@@ -39,7 +39,9 @@ dependencies {
 
 	// // Compat // //
 	modCompileOnly libs.trinkets
-	modLocalRuntime libs.trinkets
+	modLocalRuntime (libs.trinkets) {
+		exclude module: 'modmenu'
+	}
 	modCompileOnly libs.qfapi
 	modLocalRuntime libs.qfapi
 }
