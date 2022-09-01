@@ -8,6 +8,8 @@ import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtElement;
 import net.minecraft.nbt.NbtList;
+import net.minecraft.text.MutableText;
+import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Identifier;
 
 public class InventoryCompat implements PresetModule {
@@ -51,8 +53,8 @@ public class InventoryCompat implements PresetModule {
 	}
 
 	@Override
-	public String getDisableConfirmation() {
-		return "WARNING: All items not currently present in your inventory will be IMMEDIATELY lost.";
+	public MutableText getDisableConfirmation() {
+		return new TranslatableText("commands.switchy_inventories.module.warn.inventories");
 	}
 
 	public static void touch() {
