@@ -28,7 +28,7 @@
 			},
 			{
 				"id": "switchy",
-				"versions": ">=1.2.2"
+				"versions": ">=1.2.3"
 			},
 			{
 				"id": "minecraft",

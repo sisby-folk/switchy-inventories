@@ -22,6 +22,10 @@ repositories {
 		name = "Ladysnake Libs"
 		url = "https://ladysnake.jfrog.io/artifactory/mods"
 	}
+	maven {
+		name = "NucleoidMC"
+		url = uri("https://maven.nucleoid.xyz/")
+	}
 }
 
 // All the dependencies are declared at gradle/libs.version.toml and referenced with "libs.<id>"
