@@ -8,7 +8,7 @@ import net.minecraft.inventory.EnderChestInventory;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtElement;
 import net.minecraft.text.MutableText;
-import net.minecraft.text.TranslatableText;
+import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
 public class EnderChestCompat implements PresetModule {
@@ -53,7 +53,7 @@ public class EnderChestCompat implements PresetModule {
 
 	@Override
 	public MutableText getDisableConfirmation() {
-		return new TranslatableText("commands.switchy_inventories.module.warn.inventories");
+		return Text.translatable("commands.switchy_inventories.module.warn.inventories");
 	}
 
 	public static void touch() {
