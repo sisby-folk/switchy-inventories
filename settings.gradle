@@ -21,7 +21,7 @@ dependencyResolutionManagement {
 			version('minecraft', mc)
 			version('ql', "0.17.3")
 			version('qsl', "1.1.0-beta.26+${mc}")
-			version('switchy', "1.3.2+${mc_major}")
+			version('switchy', "1.3.5+${mc_major}")
 
 			library('minecraft', 'mojang', 'minecraft').versionRef('minecraft')
 			library('ql', 'org.quiltmc', 'quilt-loader').versionRef('ql')
