@@ -38,7 +38,7 @@ public class EnderChestCompat implements PresetModule {
 
 	@Override
 	public void fillFromNbt(NbtCompound nbt) {
-		this.inventory.readNbtList(nbt.getList(KEY_INVENTORY_LIST, NbtElement.LIST_TYPE));
+		this.inventory.readNbtList(nbt.getList(KEY_INVENTORY_LIST, NbtElement.COMPOUND_TYPE));
 	}
 
 	@Override
