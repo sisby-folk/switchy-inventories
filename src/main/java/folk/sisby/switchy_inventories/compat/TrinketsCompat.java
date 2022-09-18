@@ -5,7 +5,10 @@ import dev.emi.trinkets.data.EntitySlotLoader;
 import folk.sisby.switchy.api.PresetModuleRegistry;
 import folk.sisby.switchy.api.modules.CardinalSerializerCompat;
 import folk.sisby.switchy_inventories.SwitchyInventories;
+import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.util.Identifier;
+
+import java.util.List;
 
 public class TrinketsCompat {
 	private static final Identifier ID = new Identifier(SwitchyInventories.ID, "trinkets");
@@ -19,7 +22,7 @@ public class TrinketsCompat {
 			c.getInventory().clear();
 			c.getGroups().clear();
 			c.update();
-		}, (k, c, p) -> EntitySlotLoader.INSTANCE.sync(p.getServer().getPlayerManager().getPlayerList())));
+		}, (k, c, p) -> EntitySlotLoader.INSTANCE.sync(List.of((ServerPlayerEntity) p))));
 
 	}
 }
