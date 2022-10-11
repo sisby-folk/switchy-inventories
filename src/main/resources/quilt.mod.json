@@ -15,7 +15,7 @@
 				"issues": "https://github.com/sisby-folk/switchy-inventories/issues",
 				"sources": "https://github.com/sisby-folk/switchy-inventories"
 			},
-			"icon": "assets/switchy-inventories/icon.png"
+			"icon": "assets/switchy_inventories/icon.png"
 		},
 		"intermediate_mappings": "net.fabricmc:intermediary",
 		"entrypoints": {
