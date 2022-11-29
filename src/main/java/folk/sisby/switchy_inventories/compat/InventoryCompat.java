@@ -11,6 +11,7 @@ import net.minecraft.nbt.NbtList;
 import net.minecraft.text.MutableText;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
+import org.jetbrains.annotations.Nullable;
 
 public class InventoryCompat implements PresetModule {
 	private static final Identifier ID = new Identifier(SwitchyInventories.ID,  "inventories");
@@ -21,7 +22,7 @@ public class InventoryCompat implements PresetModule {
 	private final PlayerInventory inventory = new PlayerInventory(null);
 
 	@Override
-	public void updateFromPlayer(PlayerEntity player) {
+	public void updateFromPlayer(PlayerEntity player, @Nullable String nextPreset) {
 		this.inventory.clone(player.getInventory());
 	}
 
