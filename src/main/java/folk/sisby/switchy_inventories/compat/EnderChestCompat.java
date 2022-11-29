@@ -10,6 +10,7 @@ import net.minecraft.nbt.NbtElement;
 import net.minecraft.text.MutableText;
 import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Identifier;
+import org.jetbrains.annotations.Nullable;
 
 public class EnderChestCompat implements PresetModule {
 	private static final Identifier ID = new Identifier(SwitchyInventories.ID,  "ender_chests");
@@ -20,7 +21,7 @@ public class EnderChestCompat implements PresetModule {
 	private final EnderChestInventory inventory = new EnderChestInventory();
 
 	@Override
-	public void updateFromPlayer(PlayerEntity player) {
+	public void updateFromPlayer(PlayerEntity player, @Nullable String nextPreset) {
 		this.inventory.readNbtList(player.getEnderChestInventory().toNbtList());
 	}
 
