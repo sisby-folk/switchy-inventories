@@ -15,6 +15,12 @@ repositories {
 	// for more information about repositories.
 	mavenLocal()
 	maven {
+		url 'https://repo.sleeping.town'
+		content {
+			includeGroup 'com.unascribed'
+		}
+	}
+	maven {
 		name = "TerraformersMC"
 		url = "https://maven.terraformersmc.com/"
 	}

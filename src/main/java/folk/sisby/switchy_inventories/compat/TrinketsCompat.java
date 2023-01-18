@@ -2,6 +2,7 @@ package folk.sisby.switchy_inventories.compat;
 
 import dev.emi.trinkets.api.TrinketsApi;
 import dev.emi.trinkets.data.EntitySlotLoader;
+import folk.sisby.switchy.api.ModuleImportable;
 import folk.sisby.switchy.api.PresetModuleRegistry;
 import folk.sisby.switchy.api.modules.CardinalSerializerCompat;
 import folk.sisby.switchy_inventories.SwitchyInventories;
@@ -18,11 +19,11 @@ public class TrinketsCompat {
 
 	// Runs on touch() - but only once.
 	static {
-		PresetModuleRegistry.registerModule(ID, () -> new CardinalSerializerCompat<>(ID, TrinketsApi.TRINKET_COMPONENT, false, (k, c, p) -> {
+		PresetModuleRegistry.registerModule(ID, () -> new CardinalSerializerCompat<>(TrinketsApi.TRINKET_COMPONENT, (k, c, p) -> {
 			c.getInventory().clear();
 			c.getGroups().clear();
 			c.update();
-		}, (k, c, p) -> EntitySlotLoader.INSTANCE.sync(List.of((ServerPlayerEntity) p))));
+		}, (k, c, p) -> EntitySlotLoader.INSTANCE.sync(List.of((ServerPlayerEntity) p))), false, ModuleImportable.OPERATOR);
 
 	}
 }
