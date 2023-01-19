@@ -19,11 +19,11 @@ public class TrinketsCompat {
 
 	// Runs on touch() - but only once.
 	static {
-		PresetModuleRegistry.registerModule(ID, () -> new CardinalSerializerCompat<>(TrinketsApi.TRINKET_COMPONENT, (k, c, p) -> {
-			c.getInventory().clear();
-			c.getGroups().clear();
-			c.update();
-		}, (k, c, p) -> EntitySlotLoader.INSTANCE.sync(List.of((ServerPlayerEntity) p))), false, ModuleImportable.OPERATOR);
+		PresetModuleRegistry.registerModule(ID, () -> CardinalSerializerCompat.from(TrinketsApi.TRINKET_COMPONENT, (k, p) -> {
+			k.get(p).getInventory().clear();
+			k.get(p).getGroups().clear();
+			k.get(p).update();
+		}, (k, p) -> EntitySlotLoader.INSTANCE.sync(List.of((ServerPlayerEntity) p))), false, ModuleImportable.OPERATOR);
 
 	}
 }
