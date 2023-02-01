@@ -1,4 +1,4 @@
-package folk.sisby.switchy_inventories.compat;
+package folk.sisby.switchy_inventories.modules;
 
 import dev.emi.trinkets.api.TrinketsApi;
 import dev.emi.trinkets.data.EntitySlotLoader;
