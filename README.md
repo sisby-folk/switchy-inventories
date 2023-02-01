@@ -1,7 +1,13 @@
 # Switchy Inventory
 
-Add-on modules for [Switchy](https://modrinth.com/mod/switchy) that affect balance directly.
+Add-on modules for [Switchy](https://modrinth.com/mod/switchy) for player inventories.
 
-Modules:
-- Separate inventories per preset
-- Separate trinket inventories per preset.
+These allow various bits of player data to be hot-swapped on the fly - see the mod description for more info.
+
+Modules
+ - Inventories
+ - Ender Chests
+ - [Trinket](https://modrinth.com/mod/trinkets)s
+ - Experience
+
+
