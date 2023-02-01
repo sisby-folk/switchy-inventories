@@ -23,7 +23,7 @@ public class TrinketsCompat {
 			k.get(p).getInventory().clear();
 			k.get(p).getGroups().clear();
 			k.get(p).update();
-		}, (k, p) -> EntitySlotLoader.INSTANCE.sync(List.of((ServerPlayerEntity) p))), false, ModuleImportable.OPERATOR);
+		}, (k, p) -> EntitySlotLoader.SERVER.sync(List.of((ServerPlayerEntity) p))), false, ModuleImportable.OPERATOR);
 
 	}
 }
