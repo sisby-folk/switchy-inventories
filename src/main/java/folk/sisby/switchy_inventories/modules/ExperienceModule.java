@@ -7,7 +7,7 @@ import folk.sisby.switchy.api.SwitchyModInitializer;
 import folk.sisby.switchy_inventories.SwitchyInventories;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.nbt.NbtCompound;
-import net.minecraft.text.TranslatableText;
+import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 import org.jetbrains.annotations.Nullable;
 
@@ -51,6 +51,6 @@ public class ExperienceModule implements PresetModule, SwitchyModInitializer {
 
 	@Override
 	public void initializeSwitchyCompat() {
-		PresetModuleRegistry.registerModule(ID, ExperienceModule::new, false, ModuleImportable.OPERATOR, Set.of(), new TranslatableText("commands.switchy_inventories.module.warn.experience"));
+		PresetModuleRegistry.registerModule(ID, ExperienceModule::new, false, ModuleImportable.OPERATOR, Set.of(), Text.translatable("commands.switchy_inventories.module.warn.experience"));
 	}
 }
