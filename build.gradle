@@ -3,21 +3,14 @@ buildscript {
 		gradlePluginPortal()
 	}
 	dependencies {
-		classpath 'com.modrinth.minotaur:Minotaur:2.4.3'
+		classpath 'com.modrinth.minotaur:Minotaur:2.6.0'
 		classpath "com.github.breadmoirai:github-release:2.4.1"
 	}
 }
 
 plugins {
 	id 'maven-publish'
-	id 'org.quiltmc.loom' version '0.12.+'
-}
-
-if (System.getenv("MODRINTH_TOKEN")) {
-	apply plugin: "com.modrinth.minotaur"
-}
-if (System.getenv("GITHUB_TOKEN")) {
-	apply plugin: "com.github.breadmoirai.github-release"
+	alias libs.plugins.loom
 }
 
 archivesBaseName = project.archives_base_name
@@ -31,12 +24,13 @@ project.version = project.version + "+" + mc_major
 group = project.maven_group
 
 repositories {
-	// Add repositories to retrieve artifacts from in here.
-	// You should only use this when depending on other mods because
-	// Loom adds the essential maven repositories to download Minecraft and libraries from automatically.
-	// See https://docs.gradle.org/current/userguide/declaring_repositories.html
-	// for more information about repositories.
 	mavenLocal()
+	maven {
+		url = "https://maven.proxyfox.dev/"
+		content {
+			includeGroup "folk.sisby"
+		}
+	}
 	maven {
 		url 'https://repo.sleeping.town'
 		content {
@@ -57,16 +51,15 @@ repositories {
 	}
 }
 
-// All the dependencies are declared at gradle/libs.version.toml and referenced with "libs.<id>"
-// See https://docs.gradle.org/current/userguide/platforms.html for information on how version catalogs work.
 dependencies {
 	// // Base // //
-	minecraft libs.minecraft
-	mappings variantOf(libs.quiltMappings) { classifier "intermediary-v2" }
+	minecraft libs.mc
+	mappings variantOf(libs.qm) { classifier "intermediary-v2" }
 	modImplementation libs.ql
 	modImplementation libs.qsl
 
-	modImplementation libs.switchy
+	modImplementation libs.switchyCore
+	modImplementation libs.switchyCardinal
 
 	// // Compat // //
 	modCompileOnly libs.trinkets
@@ -78,11 +71,17 @@ dependencies {
 }
 
 processResources {
-	inputs.property "version", version
+	final Map<String, String> map = [
+			"version": version.toString(),
+			"mc"  : libs.versions.mc.get(),
+			"ql"  : libs.versions.ql.get(),
+			"qsl"  : libs.versions.qsl.get(),
+			"switchy": libs.versions.switchy.get(),
+			"trinkets"  : libs.versions.trinkets.get(),
+	]
 
-	filesMatching('quilt.mod.json') {
-		expand "version": version
-	}
+	inputs.properties(map)
+	filesMatching('quilt.mod.json') { expand(map) }
 }
 
 tasks.withType(JavaCompile).configureEach {
@@ -92,10 +91,6 @@ tasks.withType(JavaCompile).configureEach {
 
 java {
 	withSourcesJar()
-
-	// If this mod is going to be a library, then it should also generate Javadocs in order to aid with development.
-	// Uncomment this line to generate them.
-	// withJavadocJar()
 }
 
 jar {
@@ -104,7 +99,6 @@ jar {
 	}
 }
 
-// Configure the maven publication
 publishing {
 	publications {
 		mavenJava(MavenPublication) {
@@ -112,13 +106,13 @@ publishing {
 		}
 	}
 
-	// See https://docs.gradle.org/current/userguide/publishing_maven.html for information on how to set up publishing.
 	repositories {
 
 	}
 }
 
 if (System.getenv("MODRINTH_TOKEN")) {
+	apply plugin: "com.modrinth.minotaur"
 	modrinth {
 		token = System.getenv("MODRINTH_TOKEN")
 		projectId = 'switchy-inventories'
@@ -139,6 +133,7 @@ if (System.getenv("MODRINTH_TOKEN")) {
 }
 
 if (System.getenv("GITHUB_TOKEN")) {
+	apply plugin: "com.github.breadmoirai.github-release"
 	githubRelease {
 		token System.getenv("GITHUB_TOKEN")
 		owner "sisby-folk"

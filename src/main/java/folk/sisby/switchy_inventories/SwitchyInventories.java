@@ -1,22 +1,17 @@
 package folk.sisby.switchy_inventories;
 
-import folk.sisby.switchy_inventories.compat.EnderChestCompat;
-import folk.sisby.switchy_inventories.compat.InventoryCompat;
-import folk.sisby.switchy_inventories.compat.TrinketsCompat;
-import org.quiltmc.loader.api.ModContainer;
+import folk.sisby.switchy.api.SwitchyModInitializer;
+import folk.sisby.switchy_inventories.modules.TrinketsCompat;
 import org.quiltmc.loader.api.QuiltLoader;
-import org.quiltmc.qsl.base.api.entrypoint.ModInitializer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class SwitchyInventories implements ModInitializer {
+public class SwitchyInventories implements SwitchyModInitializer {
 	public static final String ID = "switchy_inventories";
 	public static final Logger LOGGER = LoggerFactory.getLogger(ID);
 
 	@Override
-	public void onInitialize(ModContainer mod) {
-		InventoryCompat.touch();
-		EnderChestCompat.touch();
+	public void initializeSwitchyCompat() {
 		if (QuiltLoader.isModLoaded("trinkets")) {
 			TrinketsCompat.touch();
 		}

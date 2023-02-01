@@ -1,8 +1,9 @@
-package folk.sisby.switchy_inventories.compat;
+package folk.sisby.switchy_inventories.modules;
 
 import folk.sisby.switchy.api.ModuleImportable;
 import folk.sisby.switchy.api.PresetModule;
 import folk.sisby.switchy.api.PresetModuleRegistry;
+import folk.sisby.switchy.api.SwitchyModInitializer;
 import folk.sisby.switchy_inventories.SwitchyInventories;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
@@ -15,7 +16,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.Set;
 
-public class InventoryCompat implements PresetModule {
+public class InventoryModule implements PresetModule, SwitchyModInitializer {
 	private static final Identifier ID = new Identifier(SwitchyInventories.ID,  "inventories");
 
 	public static final String KEY_INVENTORY_LIST = "inventory";
@@ -44,11 +45,8 @@ public class InventoryCompat implements PresetModule {
 		this.inventory.readNbt(nbt.getList(KEY_INVENTORY_LIST, NbtElement.COMPOUND_TYPE));
 	}
 
-	public static void touch() {
-	}
-
-	// Runs on touch() - but only once.
-	static {
-		PresetModuleRegistry.registerModule(ID, InventoryCompat::new, false, ModuleImportable.OPERATOR, Set.of(), Text.translatable("commands.switchy_inventories.module.warn.inventories"));
+	@Override
+	public void initializeSwitchyCompat() {
+		PresetModuleRegistry.registerModule(ID, InventoryModule::new, false, ModuleImportable.OPERATOR, Set.of(), Text.translatable("commands.switchy_inventories.module.warn.inventories"));
 	}
 }

@@ -18,21 +18,27 @@ dependencyResolutionManagement {
 		libs {
 			def mc_major = '1.19'
 			def mc = mc_major + '.2'
-			def mappings = 19
 
-			version('minecraft', mc)
-			version('ql', "0.17.3")
-			version('qsl', "3.0.0-beta.15+${mc}")
-			version('switchy', "1.8.1+${mc_major}")
-			version('quiltMappings', "${mc}+build.${mappings}")
+			// // Build Tools // //
+			version('loom', '1.0.+')
 
-			library('minecraft', 'mojang', 'minecraft').versionRef('minecraft')
+			plugin('loom', 'org.quiltmc.loom').versionRef('loom')
+
+			// // Base // //
+			version('mc', mc)
+			version('ql', "0.17.10")
+			version('qm', "${mc}+build.21")
+			version('qsl', "3.0.0-beta.29+${mc}")
+			version('switchy', "1.8.5+${mc_major}")
+
+			library('mc', 'mojang', 'minecraft').versionRef('mc')
 			library('ql', 'org.quiltmc', 'quilt-loader').versionRef('ql')
+			library('qm', 'org.quiltmc', 'quilt-mappings').versionRef('qm')
 			library('qsl', 'org.quiltmc', 'qsl').versionRef('qsl')
-			library('quiltMappings', 'org.quiltmc', 'quilt-mappings').versionRef('quiltMappings')
-			library('switchy', 'folk.sisby', 'switchy').versionRef('switchy')
+			library('switchyCore', 'folk.sisby', 'switchy-core').versionRef('switchy')
+			library('switchyCardinal', 'folk.sisby', 'switchy-cardinal').versionRef('switchy')
 
-			// Compat
+			// // Compat // //
 			version('trinkets', '3.4.0')
 			version('qfapi', "4.0.0-beta.10+0.60.0-${mc}")
 
