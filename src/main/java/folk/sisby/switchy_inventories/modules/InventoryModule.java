@@ -1,52 +1,37 @@
 package folk.sisby.switchy_inventories.modules;
 
-import folk.sisby.switchy.api.ModuleImportable;
-import folk.sisby.switchy.api.PresetModule;
-import folk.sisby.switchy.api.PresetModuleRegistry;
-import folk.sisby.switchy.api.SwitchyModInitializer;
-import folk.sisby.switchy_inventories.SwitchyInventories;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.player.PlayerInventory;
+import folk.sisby.switchy.api.SwitchyEvents;
+import folk.sisby.switchy.api.module.*;
 import net.minecraft.nbt.NbtCompound;
-import net.minecraft.nbt.NbtElement;
-import net.minecraft.nbt.NbtList;
+import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.Text;
-import net.minecraft.util.Identifier;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.Set;
-
-public class InventoryModule implements PresetModule, SwitchyModInitializer {
-	private static final Identifier ID = new Identifier(SwitchyInventories.ID,  "inventories");
-
-	public static final String KEY_INVENTORY_LIST = "inventory";
-
-	private final PlayerInventory inventory = new PlayerInventory(null);
-
+public class InventoryModule extends InventoryModuleData implements SwitchyModule, SwitchyModuleDisplayable, SwitchyEvents.Init {
 	@Override
-	public void updateFromPlayer(PlayerEntity player, @Nullable String nextPreset) {
+	public void updateFromPlayer(ServerPlayerEntity player, @Nullable String nextPreset) {
 		this.inventory.clone(player.getInventory());
 	}
 
 	@Override
-	public void applyToPlayer(PlayerEntity player) {
+	public void applyToPlayer(ServerPlayerEntity player) {
 		player.getInventory().clone(this.inventory);
 	}
 
 	@Override
-	public NbtCompound toNbt() {
-		NbtCompound outNbt = new NbtCompound();
-		outNbt.put(KEY_INVENTORY_LIST, inventory.writeNbt(new NbtList()));
-		return outNbt;
+	public NbtCompound toDisplayNbt() {
+		return toNbt();
 	}
 
 	@Override
-	public void fillFromNbt(NbtCompound nbt) {
-		this.inventory.readNbt(nbt.getList(KEY_INVENTORY_LIST, NbtElement.COMPOUND_TYPE));
-	}
-
-	@Override
-	public void initializeSwitchyCompat() {
-		PresetModuleRegistry.registerModule(ID, InventoryModule::new, false, ModuleImportable.OPERATOR, Set.of(), Text.translatable("commands.switchy_inventories.module.warn.inventories"));
+	public void onInitialize() {
+		SwitchyModuleRegistry.registerModule(ID, InventoryModule::new, new SwitchyModuleInfo(
+				false,
+				SwitchyModuleEditable.OPERATOR,
+				Text.literal("switchy.inventories.module.inventories.description"))
+				.withDescriptionWhenEnabled(Text.translatable("switchy.inventories.module.inventories.description"))
+				.withDescriptionWhenDisabled(Text.translatable("switchy.inventories.module.inventories.disabled"))
+				.withDeletionWarning(Text.translatable("switchy.inventories.module.inventories.warning"))
+		);
 	}
 }

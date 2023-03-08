@@ -19,11 +19,16 @@
 		},
 		"intermediate_mappings": "net.fabricmc:intermediary",
 		"entrypoints": {
-			"switchy": [
+			"events": [
 				"folk.sisby.switchy_inventories.SwitchyInventories",
 				"folk.sisby.switchy_inventories.modules.EnderChestModule",
 				"folk.sisby.switchy_inventories.modules.ExperienceModule",
 				"folk.sisby.switchy_inventories.modules.InventoryModule"
+			],
+			"client_events": [
+				"folk.sisby.switchy_inventories.modules.client.EnderChestDisplayModule",
+				"folk.sisby.switchy_inventories.modules.client.ExperienceDisplayModule",
+				"folk.sisby.switchy_inventories.modules.client.InventoryDisplayModule"
 			]
 		},
 		"depends": [
@@ -45,6 +50,10 @@
 			},
 			{
 				"id": "switchy-cardinal",
+				"versions": "${switchy}"
+			},
+			{
+				"id": "switchy-client",
 				"versions": "${switchy}"
 			},
 			{

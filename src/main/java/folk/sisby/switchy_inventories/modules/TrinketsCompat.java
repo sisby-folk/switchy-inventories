@@ -2,11 +2,13 @@ package folk.sisby.switchy_inventories.modules;
 
 import dev.emi.trinkets.api.TrinketsApi;
 import dev.emi.trinkets.data.EntitySlotLoader;
-import folk.sisby.switchy.api.ModuleImportable;
-import folk.sisby.switchy.api.PresetModuleRegistry;
+import folk.sisby.switchy.api.module.SwitchyModuleEditable;
+import folk.sisby.switchy.api.module.SwitchyModuleInfo;
+import folk.sisby.switchy.api.module.SwitchyModuleRegistry;
 import folk.sisby.switchy.api.modules.CardinalSerializerCompat;
 import folk.sisby.switchy_inventories.SwitchyInventories;
 import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
 import java.util.List;
@@ -17,13 +19,19 @@ public class TrinketsCompat {
 	public static void touch() {
 	}
 
-	// Runs on touch() - but only once.
 	static {
-		PresetModuleRegistry.registerModule(ID, () -> CardinalSerializerCompat.from(TrinketsApi.TRINKET_COMPONENT, (k, p) -> {
-			k.get(p).getInventory().clear();
-			k.get(p).getGroups().clear();
-			k.get(p).update();
-		}, (k, p) -> EntitySlotLoader.SERVER.sync(List.of((ServerPlayerEntity) p))), false, ModuleImportable.OPERATOR);
+		SwitchyModuleRegistry.registerModule(ID, () -> CardinalSerializerCompat.from(TrinketsApi.TRINKET_COMPONENT, (k, p) -> {
+					k.get(p).getInventory().clear();
+					k.get(p).getGroups().clear();
+					k.get(p).update();
+				}, (k, p) -> EntitySlotLoader.SERVER.sync(List.of((ServerPlayerEntity) p))), new SwitchyModuleInfo(
+						false,
+						SwitchyModuleEditable.OPERATOR,
+						Text.literal("switchy.inventories.module.trinkets.description"))
+						.withDescriptionWhenEnabled(Text.translatable("switchy.inventories.module.trinkets.description"))
+						.withDescriptionWhenDisabled(Text.translatable("switchy.inventories.module.trinkets.disabled"))
+						.withDeletionWarning(Text.translatable("switchy.inventories.module.trinkets.warning"))
+		);
 
 	}
 }

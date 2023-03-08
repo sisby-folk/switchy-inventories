@@ -1,0 +1,21 @@
+{
+  "lib39:enable_enhanced_lang": true,
+  "switchy" : {
+    "inventories" : {
+      "module": {
+        "inventories": {
+          "tooltip": "{}'s Inventory"
+        },
+        "ender_chests": {
+          "tooltip": "{}'s Ender Chest"
+        },
+        "experience": {
+          "tooltip": "Progress: {}/100"
+        },
+        "trinkets": {
+          "tooltip": "{}'s Trinkets"
+        }
+      }
+    }
+  }
+}

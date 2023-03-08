@@ -49,6 +49,9 @@ repositories {
 		name = "NucleoidMC"
 		url = uri("https://maven.nucleoid.xyz/")
 	}
+	maven { // owo-lib
+		url 'https://maven.wispforest.io'
+	}
 }
 
 dependencies {
@@ -60,6 +63,7 @@ dependencies {
 
 	modImplementation libs.switchyCore
 	modImplementation libs.switchyCardinal
+	modImplementation libs.switchyClient
 
 	// // Compat // //
 	modCompileOnly libs.trinkets

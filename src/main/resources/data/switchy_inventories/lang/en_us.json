@@ -1,4 +1,33 @@
 {
-  "commands.switchy_inventories.module.warn.inventories": "WARNING: All items not currently present in your inventory will be IMMEDIATELY lost.",
-  "commands.switchy_inventories.module.warn.experience": "WARNING: All experience not currently on your hotbar will be permanently lost."
+  "lib39:enable_enhanced_lang": true,
+  "switchy" : {
+    "inventories" : {
+      "module": {
+        "inventories": {
+          "description": "A module that switches the contents of player inventories.",
+          "enabled": "You will have a separate inventory for every preset.",
+          "disabled": "You will have a shared inventory across all presets.",
+          "warning": "All items not currently present in your inventory will be IMMEDIATELY lost!"
+        },
+        "ender_chests": {
+          "description": "A module that switches the contents of player ender chests.",
+          "enabled": "You will have a separate ender chest for every preset.",
+          "disabled": "You will have a shared ender chest across all presets.",
+          "warning": "All ender chest contents not currently in your ender chest will be lost!"
+        },
+        "experience": {
+          "description": "A module that switches player levels and experience.",
+          "enabled": "You will have separate levels and experience per-preset.",
+          "disabled": "You will share levels and experience across all presets.",
+          "warning": "All experience not currently on your hotbar will be lost!"
+        },
+        "trinkets": {
+          "description": "A module that switches the contents of player trinket slots.",
+          "enabled": "You will have a separate trinket slots for every preset.",
+          "disabled": "You will share a trinket slots (and their contents) across all presets.",
+          "warning": "All trinkets equipped on other presets will be IMMEDIATELY lost!"
+        }
+      }
+    }
+  }
 }

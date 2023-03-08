@@ -1,56 +1,40 @@
 package folk.sisby.switchy_inventories.modules;
 
-import folk.sisby.switchy.api.ModuleImportable;
-import folk.sisby.switchy.api.PresetModule;
-import folk.sisby.switchy.api.PresetModuleRegistry;
-import folk.sisby.switchy.api.SwitchyModInitializer;
-import folk.sisby.switchy_inventories.SwitchyInventories;
-import net.minecraft.entity.player.PlayerEntity;
+import folk.sisby.switchy.api.SwitchyEvents;
+import folk.sisby.switchy.api.module.*;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.Text;
-import net.minecraft.util.Identifier;
 import org.jetbrains.annotations.Nullable;
 
-import java.util.Set;
-
-public class ExperienceModule implements PresetModule, SwitchyModInitializer {
-	private static final Identifier ID = new Identifier(SwitchyInventories.ID,  "experience");
-
-	public static final String KEY_EXPERIENCE_LEVEL = "experienceLevel";
-	public static final String KEY_EXPERIENCE_PROGRESS = "experienceProgress";
-
-	private int experienceLevel;
-	private float experienceProgress;
-
+public class ExperienceModule extends ExperienceModuleData implements SwitchyModule, SwitchyModuleDisplayable, SwitchyEvents.Init {
 	@Override
-	public void updateFromPlayer(PlayerEntity player, @Nullable String nextPreset) {
+	public void updateFromPlayer(ServerPlayerEntity player, @Nullable String nextPreset) {
 		experienceLevel = player.experienceLevel;
 		experienceProgress = player.experienceProgress;
 	}
 
 	@Override
-	public void applyToPlayer(PlayerEntity player) {
+	public void applyToPlayer(ServerPlayerEntity player) {
 		player.experienceLevel = experienceLevel;
 		player.experienceProgress = experienceProgress;
 		player.addExperience(0);
 	}
 
 	@Override
-	public NbtCompound toNbt() {
-		NbtCompound outNbt = new NbtCompound();
-		outNbt.putInt(KEY_EXPERIENCE_LEVEL, experienceLevel);
-		outNbt.putFloat(KEY_EXPERIENCE_PROGRESS, experienceProgress);
-		return outNbt;
+	public NbtCompound toDisplayNbt() {
+		return toNbt();
 	}
 
 	@Override
-	public void fillFromNbt(NbtCompound nbt) {
-		experienceLevel = nbt.getInt(KEY_EXPERIENCE_LEVEL);
-		experienceProgress = nbt.getFloat(KEY_EXPERIENCE_PROGRESS);
-	}
-
-	@Override
-	public void initializeSwitchyCompat() {
-		PresetModuleRegistry.registerModule(ID, ExperienceModule::new, false, ModuleImportable.OPERATOR, Set.of(), Text.translatable("commands.switchy_inventories.module.warn.experience"));
+	public void onInitialize() {
+		SwitchyModuleRegistry.registerModule(ID, ExperienceModule::new, new SwitchyModuleInfo(
+				false,
+				SwitchyModuleEditable.OPERATOR,
+				Text.literal("switchy.inventories.module.experience.description"))
+				.withDescriptionWhenEnabled(Text.translatable("switchy.inventories.module.experience.description"))
+				.withDescriptionWhenDisabled(Text.translatable("switchy.inventories.module.experience.disabled"))
+				.withDeletionWarning(Text.translatable("switchy.inventories.module.experience.warning"))
+		);
 	}
 }
