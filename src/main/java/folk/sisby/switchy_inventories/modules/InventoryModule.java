@@ -7,7 +7,7 @@ import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.Text;
 import org.jetbrains.annotations.Nullable;
 
-public class InventoryModule extends InventoryModuleData implements SwitchyModule, SwitchyModuleDisplayable, SwitchyEvents.Init {
+public class InventoryModule extends InventoryModuleData implements SwitchyModule, SwitchyModuleClientable, SwitchyEvents.Init {
 	@Override
 	public void updateFromPlayer(ServerPlayerEntity player, @Nullable String nextPreset) {
 		this.inventory.clone(player.getInventory());
@@ -19,7 +19,7 @@ public class InventoryModule extends InventoryModuleData implements SwitchyModul
 	}
 
 	@Override
-	public NbtCompound toDisplayNbt() {
+	public NbtCompound toClientNbt() {
 		return toNbt();
 	}
 

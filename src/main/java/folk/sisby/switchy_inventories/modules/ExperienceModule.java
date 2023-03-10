@@ -7,7 +7,7 @@ import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.Text;
 import org.jetbrains.annotations.Nullable;
 
-public class ExperienceModule extends ExperienceModuleData implements SwitchyModule, SwitchyModuleDisplayable, SwitchyEvents.Init {
+public class ExperienceModule extends ExperienceModuleData implements SwitchyModule, SwitchyModuleClientable, SwitchyEvents.Init {
 	@Override
 	public void updateFromPlayer(ServerPlayerEntity player, @Nullable String nextPreset) {
 		experienceLevel = player.experienceLevel;
@@ -22,7 +22,7 @@ public class ExperienceModule extends ExperienceModuleData implements SwitchyMod
 	}
 
 	@Override
-	public NbtCompound toDisplayNbt() {
+	public NbtCompound toClientNbt() {
 		return toNbt();
 	}
 

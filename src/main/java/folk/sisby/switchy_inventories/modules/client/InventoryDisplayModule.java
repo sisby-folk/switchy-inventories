@@ -2,9 +2,10 @@ package folk.sisby.switchy_inventories.modules.client;
 
 import com.mojang.datafixers.util.Pair;
 import folk.sisby.switchy.client.api.SwitchyClientEvents;
-import folk.sisby.switchy.client.api.SwitchySwitchScreenPosition;
-import folk.sisby.switchy.client.api.module.SwitchyDisplayModule;
-import folk.sisby.switchy.client.api.module.SwitchyDisplayModuleRegistry;
+import folk.sisby.switchy.client.api.module.SwitchyClientModule;
+import folk.sisby.switchy.client.api.module.SwitchyClientModuleRegistry;
+import folk.sisby.switchy.ui.api.SwitchySwitchScreenPosition;
+import folk.sisby.switchy.ui.api.module.SwitchyDisplayModule;
 import folk.sisby.switchy_inventories.modules.InventoryModuleData;
 import io.wispforest.owo.ui.component.Components;
 import io.wispforest.owo.ui.component.ItemComponent;
@@ -20,7 +21,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.util.List;
 
-public class InventoryDisplayModule extends InventoryModuleData implements SwitchyDisplayModule, SwitchyClientEvents.Init {
+public class InventoryDisplayModule extends InventoryModuleData implements SwitchyClientModule, SwitchyDisplayModule, SwitchyClientEvents.Init {
 	@Override
 	public @Nullable Pair<Component, SwitchySwitchScreenPosition> getDisplayComponent() {
 		if (inventory.isEmpty()) return null;
@@ -38,6 +39,6 @@ public class InventoryDisplayModule extends InventoryModuleData implements Switc
 
 	@Override
 	public void onInitialize() {
-		SwitchyDisplayModuleRegistry.registerModule(ID, InventoryDisplayModule::new);
+		SwitchyClientModuleRegistry.registerModule(ID, InventoryDisplayModule::new);
 	}
 }

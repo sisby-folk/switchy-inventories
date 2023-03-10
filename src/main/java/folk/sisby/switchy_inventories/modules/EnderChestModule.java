@@ -7,7 +7,7 @@ import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.Text;
 import org.jetbrains.annotations.Nullable;
 
-public class EnderChestModule extends EnderChestModuleData implements SwitchyModule, SwitchyModuleDisplayable, SwitchyEvents.Init {
+public class EnderChestModule extends EnderChestModuleData implements SwitchyModule, SwitchyModuleClientable, SwitchyEvents.Init {
 	@Override
 	public void updateFromPlayer(ServerPlayerEntity player, @Nullable String nextPreset) {
 		inventory.readNbtList(player.getEnderChestInventory().toNbtList());
@@ -19,7 +19,7 @@ public class EnderChestModule extends EnderChestModuleData implements SwitchyMod
 	}
 
 	@Override
-	public NbtCompound toDisplayNbt() {
+	public NbtCompound toClientNbt() {
 		return toNbt();
 	}
 

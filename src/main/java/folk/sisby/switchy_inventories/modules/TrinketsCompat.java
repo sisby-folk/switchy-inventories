@@ -5,9 +5,8 @@ import dev.emi.trinkets.data.EntitySlotLoader;
 import folk.sisby.switchy.api.module.SwitchyModuleEditable;
 import folk.sisby.switchy.api.module.SwitchyModuleInfo;
 import folk.sisby.switchy.api.module.SwitchyModuleRegistry;
-import folk.sisby.switchy.api.modules.CardinalSerializerCompat;
+import folk.sisby.switchy.api.modules.CardinalSerializerModule;
 import folk.sisby.switchy_inventories.SwitchyInventories;
-import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.Text;
 import net.minecraft.util.Identifier;
 
@@ -20,11 +19,11 @@ public class TrinketsCompat {
 	}
 
 	static {
-		SwitchyModuleRegistry.registerModule(ID, () -> CardinalSerializerCompat.from(TrinketsApi.TRINKET_COMPONENT, (k, p) -> {
+		SwitchyModuleRegistry.registerModule(ID, () -> CardinalSerializerModule.from(TrinketsApi.TRINKET_COMPONENT, (k, p) -> {
 					k.get(p).getInventory().clear();
 					k.get(p).getGroups().clear();
 					k.get(p).update();
-				}, (k, p) -> EntitySlotLoader.SERVER.sync(List.of((ServerPlayerEntity) p))), new SwitchyModuleInfo(
+				}, (k, p) -> EntitySlotLoader.SERVER.sync(List.of(p))), new SwitchyModuleInfo(
 						false,
 						SwitchyModuleEditable.OPERATOR,
 						Text.literal("switchy.inventories.module.trinkets.description"))

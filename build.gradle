@@ -64,6 +64,7 @@ dependencies {
 	modImplementation libs.switchyCore
 	modImplementation libs.switchyCardinal
 	modImplementation libs.switchyClient
+	modImplementation libs.switchyUI
 
 	// // Compat // //
 	modCompileOnly libs.trinkets
