@@ -2,7 +2,6 @@ package folk.sisby.switchy_inventories.modules;
 
 import folk.sisby.switchy.api.SwitchyEvents;
 import folk.sisby.switchy.api.module.*;
-import net.minecraft.nbt.NbtCompound;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.Text;
 import org.jetbrains.annotations.Nullable;
@@ -16,11 +15,6 @@ public class EnderChestsModule extends EnderChestsModuleData implements SwitchyM
 	@Override
 	public void applyToPlayer(ServerPlayerEntity player) {
 		player.getEnderChestInventory().readNbtList(inventory.toNbtList());
-	}
-
-	@Override
-	public NbtCompound toClientNbt() {
-		return toNbt();
 	}
 
 	@Override
