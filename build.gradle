@@ -68,7 +68,7 @@ dependencies {
 
 	// // Compat // //
 	modCompileOnly libs.trinkets
-	modLocalRuntime (libs.trinkets) {
+	modLocalRuntime(libs.trinkets) {
 		exclude module: 'modmenu'
 	}
 	modCompileOnly libs.qfapi
@@ -77,12 +77,12 @@ dependencies {
 
 processResources {
 	final Map<String, String> map = [
-			"version": version.toString(),
-			"mc"  : libs.versions.mc.get(),
-			"ql"  : libs.versions.ql.get(),
-			"qsl"  : libs.versions.qsl.get(),
-			"switchy": libs.versions.switchy.get(),
-			"trinkets"  : libs.versions.trinkets.get(),
+			"version" : version.toString(),
+			"mc"      : libs.versions.mc.get(),
+			"ql"      : libs.versions.ql.get(),
+			"qsl"     : libs.versions.qsl.get(),
+			"switchy" : libs.versions.switchy.get(),
+			"trinkets": libs.versions.trinkets.get(),
 	]
 
 	inputs.properties(map)

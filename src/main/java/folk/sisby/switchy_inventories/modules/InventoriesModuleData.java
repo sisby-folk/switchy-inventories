@@ -2,27 +2,26 @@ package folk.sisby.switchy_inventories.modules;
 
 import folk.sisby.switchy.api.SwitchySerializable;
 import folk.sisby.switchy_inventories.SwitchyInventories;
-import net.minecraft.inventory.EnderChestInventory;
+import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtElement;
+import net.minecraft.nbt.NbtList;
 import net.minecraft.util.Identifier;
 
-public class EnderChestModuleData implements SwitchySerializable {
-	protected static final Identifier ID = new Identifier(SwitchyInventories.ID,  "ender_chests");
-
+public class InventoriesModuleData implements SwitchySerializable {
 	public static final String KEY_INVENTORY_LIST = "inventory";
-
-	protected final EnderChestInventory inventory = new EnderChestInventory();
+	protected static final Identifier ID = new Identifier(SwitchyInventories.ID, "inventories");
+	protected final PlayerInventory inventory = new PlayerInventory(null);
 
 	@Override
 	public NbtCompound toNbt() {
 		NbtCompound outNbt = new NbtCompound();
-		outNbt.put(KEY_INVENTORY_LIST, inventory.toNbtList());
+		outNbt.put(KEY_INVENTORY_LIST, inventory.writeNbt(new NbtList()));
 		return outNbt;
 	}
 
 	@Override
 	public void fillFromNbt(NbtCompound nbt) {
-		this.inventory.readNbtList(nbt.getList(KEY_INVENTORY_LIST, NbtElement.COMPOUND_TYPE));
+		this.inventory.readNbt(nbt.getList(KEY_INVENTORY_LIST, NbtElement.COMPOUND_TYPE));
 	}
 }

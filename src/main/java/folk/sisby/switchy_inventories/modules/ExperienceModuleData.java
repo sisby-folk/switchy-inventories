@@ -6,11 +6,9 @@ import net.minecraft.nbt.NbtCompound;
 import net.minecraft.util.Identifier;
 
 public class ExperienceModuleData implements SwitchySerializable {
-	protected static final Identifier ID = new Identifier(SwitchyInventories.ID,  "experience");
-
 	public static final String KEY_EXPERIENCE_LEVEL = "experienceLevel";
 	public static final String KEY_EXPERIENCE_PROGRESS = "experienceProgress";
-
+	protected static final Identifier ID = new Identifier(SwitchyInventories.ID, "experience");
 	protected int experienceLevel;
 	protected float experienceProgress;
 

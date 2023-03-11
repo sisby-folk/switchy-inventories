@@ -7,7 +7,7 @@ import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.Text;
 import org.jetbrains.annotations.Nullable;
 
-public class InventoryModule extends InventoryModuleData implements SwitchyModule, SwitchyModuleClientable, SwitchyEvents.Init {
+public class InventoriesModule extends InventoriesModuleData implements SwitchyModule, SwitchyModuleTransferable, SwitchyEvents.Init {
 	@Override
 	public void updateFromPlayer(ServerPlayerEntity player, @Nullable String nextPreset) {
 		this.inventory.clone(player.getInventory());
@@ -25,11 +25,11 @@ public class InventoryModule extends InventoryModuleData implements SwitchyModul
 
 	@Override
 	public void onInitialize() {
-		SwitchyModuleRegistry.registerModule(ID, InventoryModule::new, new SwitchyModuleInfo(
+		SwitchyModuleRegistry.registerModule(ID, InventoriesModule::new, new SwitchyModuleInfo(
 				false,
 				SwitchyModuleEditable.OPERATOR,
-				Text.literal("switchy.inventories.module.inventories.description"))
-				.withDescriptionWhenEnabled(Text.translatable("switchy.inventories.module.inventories.description"))
+				Text.translatable("switchy.inventories.module.inventories.description"))
+				.withDescriptionWhenEnabled(Text.translatable("switchy.inventories.module.inventories.enabled"))
 				.withDescriptionWhenDisabled(Text.translatable("switchy.inventories.module.inventories.disabled"))
 				.withDeletionWarning(Text.translatable("switchy.inventories.module.inventories.warning"))
 		);

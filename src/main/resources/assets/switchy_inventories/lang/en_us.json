@@ -1,7 +1,7 @@
 {
   "lib39:enable_enhanced_lang": true,
-  "switchy" : {
-    "inventories" : {
+  "switchy": {
+    "inventories": {
       "module": {
         "inventories": {
           "tooltip": "{}'s Inventory"

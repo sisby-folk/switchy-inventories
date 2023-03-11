@@ -7,7 +7,7 @@ import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.Text;
 import org.jetbrains.annotations.Nullable;
 
-public class ExperienceModule extends ExperienceModuleData implements SwitchyModule, SwitchyModuleClientable, SwitchyEvents.Init {
+public class ExperienceModule extends ExperienceModuleData implements SwitchyModule, SwitchyModuleTransferable, SwitchyEvents.Init {
 	@Override
 	public void updateFromPlayer(ServerPlayerEntity player, @Nullable String nextPreset) {
 		experienceLevel = player.experienceLevel;
@@ -31,8 +31,8 @@ public class ExperienceModule extends ExperienceModuleData implements SwitchyMod
 		SwitchyModuleRegistry.registerModule(ID, ExperienceModule::new, new SwitchyModuleInfo(
 				false,
 				SwitchyModuleEditable.OPERATOR,
-				Text.literal("switchy.inventories.module.experience.description"))
-				.withDescriptionWhenEnabled(Text.translatable("switchy.inventories.module.experience.description"))
+				Text.translatable("switchy.inventories.module.experience.description"))
+				.withDescriptionWhenEnabled(Text.translatable("switchy.inventories.module.experience.enabled"))
 				.withDescriptionWhenDisabled(Text.translatable("switchy.inventories.module.experience.disabled"))
 				.withDeletionWarning(Text.translatable("switchy.inventories.module.experience.warning"))
 		);

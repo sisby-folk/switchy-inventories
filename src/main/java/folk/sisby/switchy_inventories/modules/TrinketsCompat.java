@@ -15,9 +15,6 @@ import java.util.List;
 public class TrinketsCompat {
 	private static final Identifier ID = new Identifier(SwitchyInventories.ID, "trinkets");
 
-	public static void touch() {
-	}
-
 	static {
 		SwitchyModuleRegistry.registerModule(ID, () -> CardinalSerializerModule.from(TrinketsApi.TRINKET_COMPONENT, (k, p) -> {
 					k.get(p).getInventory().clear();
@@ -26,11 +23,14 @@ public class TrinketsCompat {
 				}, (k, p) -> EntitySlotLoader.SERVER.sync(List.of(p))), new SwitchyModuleInfo(
 						false,
 						SwitchyModuleEditable.OPERATOR,
-						Text.literal("switchy.inventories.module.trinkets.description"))
-						.withDescriptionWhenEnabled(Text.translatable("switchy.inventories.module.trinkets.description"))
+						Text.translatable("switchy.inventories.module.trinkets.description"))
+						.withDescriptionWhenEnabled(Text.translatable("switchy.inventories.module.trinkets.enabled"))
 						.withDescriptionWhenDisabled(Text.translatable("switchy.inventories.module.trinkets.disabled"))
 						.withDeletionWarning(Text.translatable("switchy.inventories.module.trinkets.warning"))
 		);
 
+	}
+
+	public static void touch() {
 	}
 }

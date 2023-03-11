@@ -21,14 +21,14 @@
 		"entrypoints": {
 			"events": [
 				"folk.sisby.switchy_inventories.SwitchyInventories",
-				"folk.sisby.switchy_inventories.modules.EnderChestModule",
+				"folk.sisby.switchy_inventories.modules.EnderChestsModule",
 				"folk.sisby.switchy_inventories.modules.ExperienceModule",
-				"folk.sisby.switchy_inventories.modules.InventoryModule"
+				"folk.sisby.switchy_inventories.modules.InventoriesModule"
 			],
 			"client_events": [
-				"folk.sisby.switchy_inventories.modules.client.EnderChestDisplayModule",
-				"folk.sisby.switchy_inventories.modules.client.ExperienceDisplayModule",
-				"folk.sisby.switchy_inventories.modules.client.InventoryDisplayModule"
+				"folk.sisby.switchy_inventories.modules.client.EnderChestsClientModule",
+				"folk.sisby.switchy_inventories.modules.client.ExperienceClientModule",
+				"folk.sisby.switchy_inventories.modules.client.InventoriesClientModule"
 			]
 		},
 		"depends": [
