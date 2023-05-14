@@ -62,8 +62,10 @@ dependencies {
 	modImplementation libs.qsl
 
 	modImplementation libs.switchyCore
+	modImplementation libs.cardinal
 	modImplementation libs.switchyCardinal
 	modImplementation libs.switchyClient
+	modImplementation libs.owo
 	modImplementation libs.switchyUI
 
 	// // Compat // //
