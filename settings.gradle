@@ -20,25 +20,20 @@ dependencyResolutionManagement {
 			def mc = mc_major + '.2'
 
 			// // Build Tools // //
-			version('loom', '1.1.+')
+			version('loom', '1.2.+')
 
 			plugin('loom', 'org.quiltmc.loom').versionRef('loom')
 
 			// // Base // //
 			version('mc', mc)
 			version('ql', "0.17.10")
-			version('qm', "${mc}+build.21")
-			version('qsl', "3.0.0-beta.29+${mc}")
-			version('switchy', "2.1.1+${mc_major}")
-
+			version('qm', "${mc}+build.22")
+			version('switchy', "2.1.4+${mc_major}")
 
 			library('mc', 'mojang', 'minecraft').versionRef('mc')
 			library('ql', 'org.quiltmc', 'quilt-loader').versionRef('ql')
 			library('qm', 'org.quiltmc', 'quilt-mappings').versionRef('qm')
-			library('qsl', 'org.quiltmc', 'qsl').versionRef('qsl')
-			library('switchyCore', 'folk.sisby', 'switchy-core').versionRef('switchy')
 			library('switchyCardinal', 'folk.sisby', 'switchy-cardinal').versionRef('switchy')
-			library('switchyClient', 'folk.sisby', 'switchy-client').versionRef('switchy')
 			library('switchyUI', 'folk.sisby', 'switchy-ui').versionRef('switchy')
 
 			// // Compat // //
@@ -47,14 +42,6 @@ dependencyResolutionManagement {
 
 			library('qfapi', 'org.quiltmc.quilted-fabric-api', 'quilted-fabric-api',).versionRef('qfapi')
 			library('trinkets', 'dev.emi', 'trinkets').versionRef('trinkets')
-
-			// // mom, loom broke transitive dependencies again // //
-			version('cardinal', "5.1.0")
-			version('owo', "0.9.3+${mc_major}")
-
-			library('cardinal', 'dev.onyxstudios.cardinal-components-api', 'cardinal-components-base').versionRef('cardinal')
-			library('cardinalEntity', 'dev.onyxstudios.cardinal-components-api', 'cardinal-components-entity').versionRef('cardinal')
-			library('owo', 'io.wispforest', 'owo-lib').versionRef('owo')
 		}
 	}
 }

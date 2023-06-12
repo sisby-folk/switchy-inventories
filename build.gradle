@@ -59,22 +59,17 @@ dependencies {
 	minecraft libs.mc
 	mappings variantOf(libs.qm) { classifier "intermediary-v2" }
 	modImplementation libs.ql
-	modImplementation libs.qsl
 
-	modImplementation libs.switchyCore
-	modImplementation libs.cardinal
 	modImplementation libs.switchyCardinal
-	modImplementation libs.switchyClient
-	modImplementation libs.owo
 	modImplementation libs.switchyUI
 
 	// // Compat // //
+	modCompileOnly libs.qfapi
+	modLocalRuntime libs.qfapi
 	modCompileOnly libs.trinkets
 	modLocalRuntime(libs.trinkets) {
 		exclude module: 'modmenu'
 	}
-	modCompileOnly libs.qfapi
-	modLocalRuntime libs.qfapi
 }
 
 processResources {
@@ -82,7 +77,6 @@ processResources {
 			"version" : version.toString(),
 			"mc"      : libs.versions.mc.get(),
 			"ql"      : libs.versions.ql.get(),
-			"qsl"     : libs.versions.qsl.get(),
 			"switchy" : libs.versions.switchy.get(),
 			"trinkets": libs.versions.trinkets.get(),
 	]

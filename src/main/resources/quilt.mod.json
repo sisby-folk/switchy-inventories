@@ -34,27 +34,19 @@
 		"depends": [
 			{
 				"id": "minecraft",
-				"versions": "${mc}"
+				"versions": ">=${mc}"
 			},
 			{
 				"id": "quilt_loader",
 				"versions": ">=${ql}"
 			},
 			{
-				"id": "quilt_base",
-				"versions": "${qsl}"
-			},
-			{
-				"id": "switchy-core",
-				"versions": "${switchy}"
-			},
-			{
 				"id": "switchy-cardinal",
-				"versions": "${switchy}"
+				"versions": ">=${switchy}"
 			},
 			{
-				"id": "switchy-client",
-				"versions": "${switchy}"
+				"id": "switchy-ui",
+				"versions": ">=${switchy}"
 			},
 			{
 				"id": "trinkets",
