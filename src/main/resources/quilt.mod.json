@@ -23,12 +23,14 @@
 				"folk.sisby.switchy_inventories.SwitchyInventories",
 				"folk.sisby.switchy_inventories.modules.EnderChestsModule",
 				"folk.sisby.switchy_inventories.modules.ExperienceModule",
-				"folk.sisby.switchy_inventories.modules.InventoriesModule"
+				"folk.sisby.switchy_inventories.modules.InventoriesModule",
+				"folk.sisby.switchy_inventories.modules.GameModeModule"
 			],
 			"client_events": [
 				"folk.sisby.switchy_inventories.modules.client.EnderChestsClientModule",
 				"folk.sisby.switchy_inventories.modules.client.ExperienceClientModule",
-				"folk.sisby.switchy_inventories.modules.client.InventoriesClientModule"
+				"folk.sisby.switchy_inventories.modules.client.InventoriesClientModule",
+				"folk.sisby.switchy_inventories.modules.client.GameModeClientModule"
 			]
 		},
 		"depends": [

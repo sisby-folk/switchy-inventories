@@ -1,6 +1,7 @@
 {
   "switchy.inventories.module.inventories.tooltip": "%s's Inventory",
   "switchy.inventories.module.ender_chests.tooltip": "%s's Ender Chest",
-  "switchy.inventories.module.experience.tooltip": "Progress: %s%%",
-  "switchy.inventories.module.trinkets.tooltip": "%s's Trinkets"
+  "switchy.inventories.module.experience.tooltip": "Current Game mode: %s%%",
+  "switchy.inventories.module.trinkets.tooltip": "%s's Trinkets",
+  "switchy.inventories.module.game_mode.tooltip": "%s's Trinkets"
 }
