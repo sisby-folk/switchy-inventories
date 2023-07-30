@@ -34,7 +34,7 @@ public class InventoriesClientModule extends InventoriesModuleData implements Sw
 				TooltipComponent.of(Text.translatable("switchy.inventories.module.inventories.tooltip", presetName).asOrderedText()),
 				TooltipComponent.of(new BundleTooltipData(dList, 0)
 				)));
-		return Pair.of(component, SwitchyUIPosition.SIDE_RIGHT);
+		return Pair.of(component, SwitchyUIPosition.GRID_RIGHT);
 	}
 
 	@Override

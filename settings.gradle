@@ -28,7 +28,7 @@ dependencyResolutionManagement {
 			version('mc', mc)
 			version('ql', "0.17.10")
 			version('qm', "${mc}+build.22")
-			version('switchy', "2.1.4+${mc_major}")
+			version('switchy', "2.4.2+${mc_major}")
 
 			library('mc', 'mojang', 'minecraft').versionRef('mc')
 			library('ql', 'org.quiltmc', 'quilt-loader').versionRef('ql')
@@ -38,9 +38,9 @@ dependencyResolutionManagement {
 
 			// // Compat // //
 			version('trinkets', '3.4.1')
-			version('qfapi', "4.0.0-beta.27+0.73.0-${mc}")
+			version('qfapi', "4.0.0-beta.30+0.76.0-${mc}")
 
-			library('qfapi', 'org.quiltmc.quilted-fabric-api', 'quilted-fabric-api',).versionRef('qfapi')
+			library('qfapi', 'org.quiltmc.quilted-fabric-api', 'quilted-fabric-api').versionRef('qfapi')
 			library('trinkets', 'dev.emi', 'trinkets').versionRef('trinkets')
 		}
 	}
