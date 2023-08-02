@@ -22,10 +22,10 @@ public class EnderChestsModule extends EnderChestsModuleData implements SwitchyM
 		SwitchyModuleRegistry.registerModule(ID, EnderChestsModule::new, new SwitchyModuleInfo(
 				false,
 				SwitchyModuleEditable.OPERATOR,
-				Text.translatable("switchy.inventories.module.ender_chests.description"))
-				.withDescriptionWhenEnabled(Text.translatable("switchy.inventories.module.ender_chests.enabled"))
-				.withDescriptionWhenDisabled(Text.translatable("switchy.inventories.module.ender_chests.disabled"))
-				.withDeletionWarning(Text.translatable("switchy.inventories.module.ender_chests.warning"))
+				Text.translatable("switchy.modules.switchy_inventories.ender_chests.description"))
+				.withDescriptionWhenEnabled(Text.translatable("switchy.modules.switchy_inventories.ender_chests.enabled"))
+				.withDescriptionWhenDisabled(Text.translatable("switchy.modules.switchy_inventories.ender_chests.disabled"))
+				.withDeletionWarning(Text.translatable("switchy.modules.switchy_inventories.ender_chests.warning"))
 		);
 	}
 }

@@ -1,6 +1,6 @@
 {
-  "switchy.inventories.module.inventories.tooltip": "%s's Inventory",
-  "switchy.inventories.module.ender_chests.tooltip": "%s's Ender Chest",
-  "switchy.inventories.module.experience.tooltip": "Progress: %s%%",
-  "switchy.inventories.module.trinkets.tooltip": "%s's Trinkets"
+  "switchy.modules.switchy_inventories.inventories.tooltip": "%s's Inventory",
+  "switchy.modules.switchy_inventories.ender_chests.tooltip": "%s's Ender Chest",
+  "switchy.modules.switchy_inventories.experience.tooltip": "Progress: %s%%",
+  "switchy.modules.switchy_inventories.trinkets.tooltip": "%s's Trinkets"
 }

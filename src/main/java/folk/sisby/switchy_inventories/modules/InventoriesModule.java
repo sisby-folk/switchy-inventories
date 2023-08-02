@@ -22,10 +22,10 @@ public class InventoriesModule extends InventoriesModuleData implements SwitchyM
 		SwitchyModuleRegistry.registerModule(ID, InventoriesModule::new, new SwitchyModuleInfo(
 				false,
 				SwitchyModuleEditable.OPERATOR,
-				Text.translatable("switchy.inventories.module.inventories.description"))
-				.withDescriptionWhenEnabled(Text.translatable("switchy.inventories.module.inventories.enabled"))
-				.withDescriptionWhenDisabled(Text.translatable("switchy.inventories.module.inventories.disabled"))
-				.withDeletionWarning(Text.translatable("switchy.inventories.module.inventories.warning"))
+				Text.translatable("switchy.modules.switchy_inventories.inventories.description"))
+				.withDescriptionWhenEnabled(Text.translatable("switchy.modules.switchy_inventories.inventories.enabled"))
+				.withDescriptionWhenDisabled(Text.translatable("switchy.modules.switchy_inventories.inventories.disabled"))
+				.withDeletionWarning(Text.translatable("switchy.modules.switchy_inventories.inventories.warning"))
 		);
 	}
 }

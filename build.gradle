@@ -32,18 +32,12 @@ repositories {
 		}
 	}
 	maven {
-		url 'https://repo.sleeping.town'
-		content {
-			includeGroup 'com.unascribed'
-		}
-	}
-	maven {
 		name = "TerraformersMC"
 		url = "https://maven.terraformersmc.com/"
 	}
 	maven {
 		name = "Ladysnake Libs"
-		url = "https://ladysnake.jfrog.io/artifactory/mods"
+		url = "https://maven.ladysnake.org/releases"
 	}
 	maven {
 		name = "NucleoidMC"

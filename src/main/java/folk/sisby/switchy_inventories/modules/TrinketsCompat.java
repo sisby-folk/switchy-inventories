@@ -23,10 +23,10 @@ public class TrinketsCompat {
 				}, (k, p) -> EntitySlotLoader.SERVER.sync(List.of(p))), new SwitchyModuleInfo(
 						false,
 						SwitchyModuleEditable.OPERATOR,
-						Text.translatable("switchy.inventories.module.trinkets.description"))
-						.withDescriptionWhenEnabled(Text.translatable("switchy.inventories.module.trinkets.enabled"))
-						.withDescriptionWhenDisabled(Text.translatable("switchy.inventories.module.trinkets.disabled"))
-						.withDeletionWarning(Text.translatable("switchy.inventories.module.trinkets.warning"))
+						Text.translatable("switchy.modules.switchy_inventories.trinkets.description"))
+						.withDescriptionWhenEnabled(Text.translatable("switchy.modules.switchy_inventories.trinkets.enabled"))
+						.withDescriptionWhenDisabled(Text.translatable("switchy.modules.switchy_inventories.trinkets.disabled"))
+						.withDeletionWarning(Text.translatable("switchy.modules.switchy_inventories.trinkets.warning"))
 		);
 
 	}

@@ -25,10 +25,10 @@ public class ExperienceModule extends ExperienceModuleData implements SwitchyMod
 		SwitchyModuleRegistry.registerModule(ID, ExperienceModule::new, new SwitchyModuleInfo(
 				false,
 				SwitchyModuleEditable.OPERATOR,
-				Text.translatable("switchy.inventories.module.experience.description"))
-				.withDescriptionWhenEnabled(Text.translatable("switchy.inventories.module.experience.enabled"))
-				.withDescriptionWhenDisabled(Text.translatable("switchy.inventories.module.experience.disabled"))
-				.withDeletionWarning(Text.translatable("switchy.inventories.module.experience.warning"))
+				Text.translatable("switchy.modules.switchy_inventories.experience.description"))
+				.withDescriptionWhenEnabled(Text.translatable("switchy.modules.switchy_inventories.experience.enabled"))
+				.withDescriptionWhenDisabled(Text.translatable("switchy.modules.switchy_inventories.experience.disabled"))
+				.withDeletionWarning(Text.translatable("switchy.modules.switchy_inventories.experience.warning"))
 		);
 	}
 }
