@@ -21,7 +21,7 @@ public class ExperienceClientModule extends ExperienceModuleData implements Swit
 				Components.label(
 								Text.literal("Lv. " + experienceLevel)
 										.setStyle(Style.EMPTY.withColor(Formatting.GREEN)))
-						.tooltip(Text.translatable("switchy.modules.switchy_inventories.experience.tooltip", String.valueOf((int) (experienceProgress * 100)))),
+						.tooltip(Text.translatable("switchy.modules.switchy_inventories.experience.preview.tooltip", String.valueOf((int) (experienceProgress * 100)))),
 				SwitchyUIPosition.SIDE_RIGHT);
 	}
 
