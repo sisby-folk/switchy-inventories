@@ -13,7 +13,7 @@ import net.minecraft.util.Identifier;
 import java.util.List;
 
 public class TrinketsCompat {
-	private static final Identifier ID = new Identifier(SwitchyInventories.ID, "trinkets");
+	public static final Identifier ID = new Identifier(SwitchyInventories.ID, "trinkets");
 
 	static {
 		SwitchyModuleRegistry.registerModule(ID, () -> CardinalSerializerModule.from(TrinketsApi.TRINKET_COMPONENT, (k, p) -> {
