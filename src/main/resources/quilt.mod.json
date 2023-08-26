@@ -8,7 +8,7 @@
 			"name": "Switchy Inventories",
 			"description": "Multiple separate inventories using Switchy",
 			"contributors": {
-				"Sisby Folk": "Owner"
+				"Sisby folk": "Co-Authors"
 			},
 			"contact": {
 				"homepage": "https://modrinth.com/mod/switchy-inventories",
@@ -19,13 +19,13 @@
 		},
 		"intermediate_mappings": "net.fabricmc:intermediary",
 		"entrypoints": {
-			"events": [
+			"switchy": [
 				"folk.sisby.switchy_inventories.SwitchyInventories",
 				"folk.sisby.switchy_inventories.modules.EnderChestsModule",
 				"folk.sisby.switchy_inventories.modules.ExperienceModule",
 				"folk.sisby.switchy_inventories.modules.InventoriesModule"
 			],
-			"client_events": [
+			"switchy_client": [
 				"folk.sisby.switchy_inventories.SwitchyInventoriesClient",
 				"folk.sisby.switchy_inventories.modules.client.EnderChestsClientModule",
 				"folk.sisby.switchy_inventories.modules.client.ExperienceClientModule",

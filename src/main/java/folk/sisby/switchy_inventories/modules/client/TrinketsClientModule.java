@@ -7,7 +7,6 @@ import folk.sisby.switchy.client.api.module.SwitchyClientModule;
 import folk.sisby.switchy.client.api.module.SwitchyClientModuleRegistry;
 import folk.sisby.switchy.ui.api.SwitchyUIPosition;
 import folk.sisby.switchy.ui.api.module.SwitchyUIModule;
-import folk.sisby.switchy_inventories.SwitchyInventoriesClient;
 import folk.sisby.switchy_inventories.modules.TrinketsCompat;
 import io.wispforest.owo.ui.component.Components;
 import io.wispforest.owo.ui.component.ItemComponent;
