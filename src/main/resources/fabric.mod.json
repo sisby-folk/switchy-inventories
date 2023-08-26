@@ -38,8 +38,5 @@
   },
   "suggests": {
     "trinkets": ">=${trinkets}"
-  },
-  "modmenu": {
-    "parent": "switchy"
   }
 }
