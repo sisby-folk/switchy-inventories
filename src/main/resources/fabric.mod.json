@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "switchy-inventories",
-  "version": "${switchy}",
+  "version": "${version}",
   "name": "Switchy Inventories",
   "description": "Multiple separate inventories using Switchy",
   "authors": [
