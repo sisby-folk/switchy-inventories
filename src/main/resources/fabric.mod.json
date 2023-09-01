@@ -23,7 +23,6 @@
       "folk.sisby.switchy_inventories.modules.InventoriesModule"
     ],
     "switchy_client": [
-      "folk.sisby.switchy_inventories.SwitchyInventoriesClient",
       "folk.sisby.switchy_inventories.modules.client.EnderChestsClientModule",
       "folk.sisby.switchy_inventories.modules.client.ExperienceClientModule",
       "folk.sisby.switchy_inventories.modules.client.InventoriesClientModule"

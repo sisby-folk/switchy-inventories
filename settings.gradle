@@ -38,7 +38,7 @@ dependencyResolutionManagement {
 			library('qfapi', 'org.quiltmc.quilted-fabric-api', 'quilted-fabric-api',).versionRef('qfapi')
 
 			// // Switchy // //
-			version('switchy', "2.7.0+${mc_major}")
+			version('switchy', "2.8.0+${mc_major}")
 
 			library('switchyCardinal', 'folk.sisby', 'switchy-cardinal').versionRef('switchy')
 			library('switchyUI', 'folk.sisby', 'switchy-ui').versionRef('switchy')
