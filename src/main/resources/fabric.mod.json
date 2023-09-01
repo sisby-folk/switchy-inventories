@@ -17,7 +17,6 @@
   "environment": "*",
   "entrypoints": {
     "switchy": [
-      "folk.sisby.switchy_inventories.SwitchyInventories",
       "folk.sisby.switchy_inventories.modules.EnderChestsModule",
       "folk.sisby.switchy_inventories.modules.ExperienceModule",
       "folk.sisby.switchy_inventories.modules.InventoriesModule"
