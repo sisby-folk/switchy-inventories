@@ -35,6 +35,6 @@
     "switchy-ui": ">=${switchy}"
   },
   "suggests": {
-    "trinkets": ">=${trinkets}"
+    "trinkets": ">=3.4.3"
   }
 }

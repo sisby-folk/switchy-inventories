@@ -49,7 +49,7 @@
 			},
 			{
 				"id": "trinkets",
-				"versions": ">=${trinkets}",
+				"versions": ">=3.4.3",
 				"optional": true
 			}
 		]

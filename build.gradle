@@ -57,12 +57,6 @@ dependencies {
 
 	modImplementation libs.switchyCardinal
 	modImplementation libs.switchyUI
-
-	// // Compat // //
-	modCompileOnly libs.trinkets
-	modLocalRuntime(libs.trinkets) {
-		exclude module: 'modmenu'
-	}
 }
 
 processResources {
@@ -72,8 +66,7 @@ processResources {
 		"ql"      : libs.versions.ql.get(),
 		"fapi"    : libs.versions.fapi.get(),
 		"qfapi"   : libs.versions.qfapi.get(),
-		"switchy" : libs.versions.switchy.get(),
-		"trinkets": libs.versions.trinkets.get(),
+		"switchy" : libs.versions.switchy.get()
 	]
 
 	inputs.properties(map)
