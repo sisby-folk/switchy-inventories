@@ -20,7 +20,7 @@ public class TrinketsCompat {
 					k.get(p).getInventory().clear();
 					k.get(p).getGroups().clear();
 					k.get(p).update();
-				}, (k, p) -> EntitySlotLoader.SERVER.sync(List.of(p))), new SwitchyModuleInfo(
+				}, (k, p) -> EntitySlotLoader.INSTANCE.sync(List.of(p))), new SwitchyModuleInfo(
 						false,
 						SwitchyModuleEditable.OPERATOR,
 						Feedback.translatable("switchy.modules.switchy_inventories.trinkets.description"))
