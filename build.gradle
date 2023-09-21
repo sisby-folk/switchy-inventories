@@ -1,10 +1,9 @@
+//file:noinspection GroovyAccessibility
+//file:noinspection GroovyAssignabilityCheck
 buildscript {
-	repositories {
-		gradlePluginPortal()
-	}
 	dependencies {
-		classpath 'com.modrinth.minotaur:Minotaur:2.6.0'
-		classpath "com.github.breadmoirai:github-release:2.4.1"
+		classpath "com.modrinth.minotaur:Minotaur:${libs.versions.minotaur.get()}"
+		classpath "com.github.breadmoirai:github-release:${libs.versions.githubRelease.get()}"
 	}
 }
 
@@ -13,39 +12,17 @@ plugins {
 	alias libs.plugins.loom
 }
 
-archivesBaseName = project.archives_base_name
-
-def mc_major = '1.19'
-def mc = mc_major + '.2'
-def default_branch = '1.19'
-
-def origVersion = project.version
-project.version = project.version + "+" + mc_major
-group = project.maven_group
+version = project.baseVersion + project.branch
+archivesBaseName = project.name
+group = 'folk.sisby'
 
 repositories {
 	mavenLocal()
-	maven {
-		url = "https://maven.proxyfox.dev/"
-		content {
-			includeGroup "folk.sisby"
-		}
-	}
-	maven {
-		name = "TerraformersMC"
-		url = "https://maven.terraformersmc.com/"
-	}
-	maven {
-		name = "Ladysnake Libs"
-		url = "https://maven.ladysnake.org/releases"
-	}
-	maven {
-		name = "NucleoidMC"
-		url = uri("https://maven.nucleoid.xyz/")
-	}
-	maven { // owo-lib
-		url 'https://maven.wispforest.io'
-	}
+	maven { url "https://maven.proxyfox.dev/" }
+	maven { url "https://maven.terraformersmc.com/" }
+	maven { url "https://maven.ladysnake.org/releases" }
+	maven { url "https://maven.nucleoid.xyz/" }
+	maven { url "https://maven.wispforest.io" }
 }
 
 dependencies {
@@ -55,6 +32,8 @@ dependencies {
 	modImplementation libs.ql
 	modImplementation libs.qfapi
 
+	modImplementation libs.switchyCore
+	modImplementation libs.switchyClient
 	modImplementation libs.switchyCardinal
 	modImplementation libs.switchyUI
 
@@ -106,14 +85,10 @@ publishing {
 	}
 
 	repositories {
-		if (System.getenv("SWITCHY_MAVEN_URL")) {
-			maven {
-				url = System.getenv("SWITCHY_MAVEN_URL")
-				credentials {
-					username = System.getenv("SWITCHY_MAVEN_USERNAME")
-					password = System.getenv("SWITCHY_MAVEN_PASSWORD")
-				}
-			}
+		maven {
+			name "ProxyFox"
+			url "https://maven.proxyfox.dev/"
+			credentials(PasswordCredentials)
 		}
 	}
 }
@@ -124,17 +99,17 @@ if (System.getenv("MODRINTH_TOKEN")) {
 		token = System.getenv("MODRINTH_TOKEN")
 		projectId = 'switchy-inventories'
 		versionNumber = project.version
-		versionName = origVersion
+		versionName = baseVersion
 		versionType = 'release'
 		uploadFile = remapJar
-		gameVersions = [mc, "1.19.3", "1.19.4", "1.20", "1.20.1"]
+		gameVersions = [libs.versions.mc.get(), "1.19.3", "1.19.4", "1.20", "1.20.1"]
 		loaders = ['quilt', 'fabric', 'forge']
 		detectLoaders = false
 		dependencies {
 			required.project "switchy"
 			optional.project "trinkets"
 		}
-		changelog = "Changelog: https://github.com/sisby-folk/switchy-inventories/releases/tag/v" + origVersion
+		changelog = "Changelog: https://github.com/sisby-folk/switchy-inventories/releases/tag/v" + baseVersion
 		syncBodyFrom = rootProject.file("README.md").text
 	}
 }
@@ -145,9 +120,9 @@ if (System.getenv("GITHUB_TOKEN")) {
 		token System.getenv("GITHUB_TOKEN")
 		owner "sisby-folk"
 		repo "switchy-inventories"
-		tagName 'v' + origVersion
-		releaseName origVersion
-		targetCommitish default_branch
+		tagName 'v' + baseVersion
+		releaseName baseVersion
+		targetCommitish project.defaultBranch
 		draft false
 		prerelease false
 		releaseAssets remapJar.archiveFile

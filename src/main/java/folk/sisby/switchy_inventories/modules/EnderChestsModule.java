@@ -2,8 +2,8 @@ package folk.sisby.switchy_inventories.modules;
 
 import folk.sisby.switchy.api.SwitchyEvents;
 import folk.sisby.switchy.api.module.*;
+import folk.sisby.switchy.util.Feedback;
 import net.minecraft.server.network.ServerPlayerEntity;
-import net.minecraft.text.Text;
 import org.jetbrains.annotations.Nullable;
 
 public class EnderChestsModule extends EnderChestsModuleData implements SwitchyModule, SwitchyModuleTransferable, SwitchyEvents.Init {
@@ -22,10 +22,10 @@ public class EnderChestsModule extends EnderChestsModuleData implements SwitchyM
 		SwitchyModuleRegistry.registerModule(ID, EnderChestsModule::new, new SwitchyModuleInfo(
 				false,
 				SwitchyModuleEditable.OPERATOR,
-				Text.translatable("switchy.modules.switchy_inventories.ender_chests.description"))
-				.withDescriptionWhenEnabled(Text.translatable("switchy.modules.switchy_inventories.ender_chests.enabled"))
-				.withDescriptionWhenDisabled(Text.translatable("switchy.modules.switchy_inventories.ender_chests.disabled"))
-				.withDeletionWarning(Text.translatable("switchy.modules.switchy_inventories.ender_chests.warning"))
+				Feedback.translatable("switchy.modules.switchy_inventories.ender_chests.description"))
+				.withDescriptionWhenEnabled(Feedback.translatable("switchy.modules.switchy_inventories.ender_chests.enabled"))
+				.withDescriptionWhenDisabled(Feedback.translatable("switchy.modules.switchy_inventories.ender_chests.disabled"))
+				.withDeletionWarning(Feedback.translatable("switchy.modules.switchy_inventories.ender_chests.warning"))
 		);
 	}
 }
