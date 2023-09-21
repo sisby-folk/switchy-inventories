@@ -12,7 +12,7 @@ plugins {
 	alias libs.plugins.loom
 }
 
-version = project.baseVersion + project.branch
+version = "$project.baseVersion+$project.branch"
 archivesBaseName = project.name
 group = 'folk.sisby'
 
