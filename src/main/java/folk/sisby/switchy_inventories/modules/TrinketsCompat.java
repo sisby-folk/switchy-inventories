@@ -16,11 +16,21 @@ public class TrinketsCompat {
 	public static final Identifier ID = new Identifier(SwitchyInventories.ID, "trinkets");
 
 	static {
+		EntitySlotLoader loader;
+		try {
+			//noinspection JavaReflectionMemberAccess
+			loader = (EntitySlotLoader) EntitySlotLoader.class.getDeclaredField("INSTANCE").get(null);
+		} catch (Exception ignored) {
+			loader = EntitySlotLoader.SERVER;
+		}
+
+		EntitySlotLoader finalLoader = loader;
 		SwitchyModuleRegistry.registerModule(ID, () -> CardinalSerializerModule.from(TrinketsApi.TRINKET_COMPONENT, (k, p) -> {
 					k.get(p).getInventory().clear();
 					k.get(p).getGroups().clear();
 					k.get(p).update();
-				}, (k, p) -> EntitySlotLoader.SERVER.sync(List.of(p))), new SwitchyModuleInfo(
+				}, (k, p) -> finalLoader.sync(List.of(p))),
+			new SwitchyModuleInfo(
 						false,
 						SwitchyModuleEditable.OPERATOR,
 						Feedback.translatable("switchy.modules.switchy_inventories.trinkets.description"))
