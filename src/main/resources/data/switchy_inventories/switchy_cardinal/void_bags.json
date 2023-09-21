@@ -1,0 +1,10 @@
+{
+  "default": false,
+  "editable": "OPERATOR",
+  "ifModsLoaded": [
+    "wwizardry"
+  ],
+  "components": [
+    "wwizardry:void_bag"
+  ]
+}

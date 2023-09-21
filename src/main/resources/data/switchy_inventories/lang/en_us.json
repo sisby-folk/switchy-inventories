@@ -1,4 +1,22 @@
 {
-  "commands.switchy_inventories.module.warn.inventories": "WARNING: All items not currently present in your inventory will be IMMEDIATELY lost.",
-  "commands.switchy_inventories.module.warn.experience": "WARNING: All experience not currently on your hotbar will be permanently lost."
+  "switchy.modules.switchy_inventories.inventories.description": "A module that switches the contents of player inventories.",
+  "switchy.modules.switchy_inventories.inventories.enabled": "You will have a separate inventory for every preset.",
+  "switchy.modules.switchy_inventories.inventories.disabled": "You will have a shared inventory across all presets.",
+  "switchy.modules.switchy_inventories.inventories.warning": "All items not currently present in your inventory will be IMMEDIATELY lost!",
+  "switchy.modules.switchy_inventories.ender_chests.description": "A module that switches the contents of player ender chests.",
+  "switchy.modules.switchy_inventories.ender_chests.enabled": "You will have a separate ender chest for every preset.",
+  "switchy.modules.switchy_inventories.ender_chests.disabled": "You will have a shared ender chest across all presets.",
+  "switchy.modules.switchy_inventories.ender_chests.warning": "All ender chest contents not currently in your ender chest will be lost!",
+  "switchy.modules.switchy_inventories.experience.description": "A module that switches player levels and experience.",
+  "switchy.modules.switchy_inventories.experience.enabled": "You will have separate levels and experience per-preset.",
+  "switchy.modules.switchy_inventories.experience.disabled": "You will share levels and experience across all presets.",
+  "switchy.modules.switchy_inventories.experience.warning": "All experience not currently on your hotbar will be lost!",
+  "switchy.modules.switchy_inventories.trinkets.description": "A module that switches the contents of player trinket slots.",
+  "switchy.modules.switchy_inventories.trinkets.enabled": "You will have a separate trinket slots for every preset.",
+  "switchy.modules.switchy_inventories.trinkets.disabled": "You will share a trinket slots (and their contents) across all presets.",
+  "switchy.modules.switchy_inventories.trinkets.warning": "All trinkets equipped on other presets will be IMMEDIATELY lost!",
+  "switchy.modules.switchy_inventories.void_bags.description": "A module that switches void bag contents from Sweet Berry's Wandering Wizardry.",
+  "switchy.modules.switchy_inventories.void_bags.enabled": "You will have a separate void bag for every preset.",
+  "switchy.modules.switchy_inventories.void_bags.disabled": "You will have a shared void bag across all presets.",
+  "switchy.modules.switchy_inventories.void_bags.warning": "All void bag contents not currently in your void bag will be lost!"
 }

@@ -1,49 +1,15 @@
 pluginManagement {
 	repositories {
-		maven {
-			name = 'Quilt'
-			url = 'https://maven.quiltmc.org/repository/release'
-		}
-		// Currently needed for Intermediary and other temporary dependencies
-		maven {
-			name = 'Fabric'
-			url = 'https://maven.fabricmc.net/'
-		}
+		maven { url 'https://maven.quiltmc.org/repository/release'}
+		maven { url 'https://maven.fabricmc.net/'}
 		gradlePluginPortal()
 	}
 }
 
 dependencyResolutionManagement {
 	versionCatalogs {
-		libs {
-			def mc_major = '1.18'
-			def mc = mc_major + '.2'
-
-			// // Build Tools // //
-			version('loom', '1.0.+')
-
-			plugin('loom', 'org.quiltmc.loom').versionRef('loom')
-
-			// // Base // //
-			version('mc', mc)
-			version('ql', "0.17.10")
-			version('qm', "${mc}+build.26")
-			version('qsl', "1.1.0-beta.26+${mc}")
-			version('switchy', "1.8.5+${mc_major}")
-
-			library('mc', 'mojang', 'minecraft').versionRef('mc')
-			library('ql', 'org.quiltmc', 'quilt-loader').versionRef('ql')
-			library('qm', 'org.quiltmc', 'quilt-mappings').versionRef('qm')
-			library('qsl', 'org.quiltmc', 'qsl').versionRef('qsl')
-			library('switchyCore', 'folk.sisby', 'switchy-core').versionRef('switchy')
-			library('switchyCardinal', 'folk.sisby', 'switchy-cardinal').versionRef('switchy')
-
-			// // Compat // //
-			version('trinkets', '3.3.1')
-			version('qfapi', "1.0.0-beta.28+0.67.0-${mc}")
-
-			library('qfapi', 'org.quiltmc.quilted-fabric-api', 'quilted-fabric-api', ).versionRef('qfapi')
-			library('trinkets', 'dev.emi', 'trinkets').versionRef('trinkets')
+		create("libs") {
+			from(files("libs.versions.toml"))
 		}
 	}
 }

@@ -8,7 +8,7 @@
 			"name": "Switchy Inventories",
 			"description": "Multiple separate inventories using Switchy",
 			"contributors": {
-				"Sisby Folk": "Owner"
+				"Sisby folk": "Co-Authors"
 			},
 			"contact": {
 				"homepage": "https://modrinth.com/mod/switchy-inventories",
@@ -21,31 +21,32 @@
 		"entrypoints": {
 			"switchy": [
 				"folk.sisby.switchy_inventories.SwitchyInventories",
-				"folk.sisby.switchy_inventories.modules.EnderChestModule",
+				"folk.sisby.switchy_inventories.modules.EnderChestsModule",
 				"folk.sisby.switchy_inventories.modules.ExperienceModule",
-				"folk.sisby.switchy_inventories.modules.InventoryModule"
+				"folk.sisby.switchy_inventories.modules.InventoriesModule"
+			],
+			"switchy_client": [
+				"folk.sisby.switchy_inventories.modules.client.EnderChestsClientModule",
+				"folk.sisby.switchy_inventories.modules.client.ExperienceClientModule",
+				"folk.sisby.switchy_inventories.modules.client.InventoriesClientModule"
 			]
 		},
 		"depends": [
 			{
 				"id": "minecraft",
-				"versions": "${mc}"
+				"versions": ">=${mc}"
 			},
 			{
 				"id": "quilt_loader",
 				"versions": ">=${ql}"
 			},
 			{
-				"id": "quilt_base",
-				"versions": "${qsl}"
-			},
-			{
-				"id": "switchy-core",
-				"versions": "${switchy}"
-			},
-			{
 				"id": "switchy-cardinal",
-				"versions": "${switchy}"
+				"versions": ">=${switchy}"
+			},
+			{
+				"id": "switchy-ui",
+				"versions": ">=${switchy}"
 			},
 			{
 				"id": "trinkets",
