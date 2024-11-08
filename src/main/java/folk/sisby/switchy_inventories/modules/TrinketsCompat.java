@@ -13,7 +13,7 @@ import net.minecraft.util.Identifier;
 import java.util.List;
 
 public class TrinketsCompat {
-	public static final Identifier ID = new Identifier(SwitchyInventories.ID, "trinkets");
+	public static final Identifier ID = Feedback.identifier(SwitchyInventories.ID, "trinkets");
 
 	static {
 		EntitySlotLoader loader;

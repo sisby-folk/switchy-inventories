@@ -1,6 +1,7 @@
 package folk.sisby.switchy_inventories.modules;
 
 import folk.sisby.switchy.api.SwitchySerializable;
+import folk.sisby.switchy.util.Feedback;
 import folk.sisby.switchy_inventories.SwitchyInventories;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.util.Identifier;
@@ -8,7 +9,7 @@ import net.minecraft.util.Identifier;
 public class ExperienceModuleData implements SwitchySerializable {
 	public static final String KEY_EXPERIENCE_LEVEL = "experienceLevel";
 	public static final String KEY_EXPERIENCE_PROGRESS = "experienceProgress";
-	protected static final Identifier ID = new Identifier(SwitchyInventories.ID, "experience");
+	protected static final Identifier ID = Feedback.identifier(SwitchyInventories.ID, "experience");
 	protected int experienceLevel;
 	protected float experienceProgress;
 

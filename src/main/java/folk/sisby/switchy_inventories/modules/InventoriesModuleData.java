@@ -1,6 +1,7 @@
 package folk.sisby.switchy_inventories.modules;
 
 import folk.sisby.switchy.api.SwitchySerializable;
+import folk.sisby.switchy.util.Feedback;
 import folk.sisby.switchy_inventories.SwitchyInventories;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.nbt.NbtCompound;
@@ -10,7 +11,7 @@ import net.minecraft.util.Identifier;
 
 public class InventoriesModuleData implements SwitchySerializable {
 	public static final String KEY_INVENTORY_LIST = "inventory";
-	protected static final Identifier ID = new Identifier(SwitchyInventories.ID, "inventories");
+	protected static final Identifier ID = Feedback.identifier(SwitchyInventories.ID, "inventories");
 	protected final PlayerInventory inventory = new PlayerInventory(null);
 
 	@Override
