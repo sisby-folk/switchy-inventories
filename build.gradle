@@ -75,6 +75,9 @@ jar {
 	from("LICENSE") {
 		rename { "${it}_${archivesBaseName}" }
 	}
+	from("src/main/resources/data/${modId}/lang/en_us.json") {
+		into { "assets/${modId}_data/lang" }
+	}
 }
 
 publishing {
