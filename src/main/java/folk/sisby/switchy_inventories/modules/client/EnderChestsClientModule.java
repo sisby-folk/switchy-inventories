@@ -28,9 +28,9 @@ public class EnderChestsClientModule extends EnderChestsModuleData implements Sw
 		dList.addAll(inventory.stacks.stream().filter(i -> !i.isEmpty()).toList());
 		ItemComponent component = Components.item(Items.ENDER_CHEST.getDefaultStack());
 		component.tooltip(List.of(
-				TooltipComponent.of(Feedback.translatable("switchy.modules.switchy_inventories.ender_chests.preview.tooltip", presetName).asOrderedText()),
-				TooltipComponent.of(new BundleTooltipData(dList, 0)
-				)));
+			TooltipComponent.of(Feedback.translatable("switchy.modules.switchy_inventories.ender_chests.preview.tooltip", presetName).asOrderedText()),
+			TooltipComponent.of(new BundleTooltipData(dList, 0)
+			)));
 		return Pair.of(component, SwitchyUIPosition.GRID_RIGHT);
 	}
 

@@ -26,17 +26,17 @@ public class TrinketsCompat {
 
 		EntitySlotLoader finalLoader = loader;
 		SwitchyModuleRegistry.registerModule(ID, () -> CardinalSerializerModule.from(TrinketsApi.TRINKET_COMPONENT, (k, p) -> {
-					k.get(p).getInventory().clear();
-					k.get(p).getGroups().clear();
-					k.get(p).update();
-				}, (k, p) -> finalLoader.sync(List.of(p))),
+				k.get(p).getInventory().clear();
+				k.get(p).getGroups().clear();
+				k.get(p).update();
+			}, (k, p) -> finalLoader.sync(List.of(p))),
 			new SwitchyModuleInfo(
-						false,
-						SwitchyModuleEditable.OPERATOR,
-						Feedback.translatable("switchy.modules.switchy_inventories.trinkets.description"))
-						.withDescriptionWhenEnabled(Feedback.translatable("switchy.modules.switchy_inventories.trinkets.enabled"))
-						.withDescriptionWhenDisabled(Feedback.translatable("switchy.modules.switchy_inventories.trinkets.disabled"))
-						.withDeletionWarning(Feedback.translatable("switchy.modules.switchy_inventories.trinkets.warning"))
+				false,
+				SwitchyModuleEditable.OPERATOR,
+				Feedback.translatable("switchy.modules.switchy_inventories.trinkets.description"))
+				.withDescriptionWhenEnabled(Feedback.translatable("switchy.modules.switchy_inventories.trinkets.enabled"))
+				.withDescriptionWhenDisabled(Feedback.translatable("switchy.modules.switchy_inventories.trinkets.disabled"))
+				.withDeletionWarning(Feedback.translatable("switchy.modules.switchy_inventories.trinkets.warning"))
 		);
 
 	}

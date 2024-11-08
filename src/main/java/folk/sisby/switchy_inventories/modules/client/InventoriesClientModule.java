@@ -31,9 +31,9 @@ public class InventoriesClientModule extends InventoriesModuleData implements Sw
 		dList.addAll(inventory.main.subList(0, PlayerInventory.getHotbarSize()).stream().filter(i -> !i.isEmpty()).toList());
 		ItemComponent component = Components.item(Items.BUNDLE.getDefaultStack());
 		component.tooltip(List.of(
-				TooltipComponent.of(Feedback.translatable("switchy.modules.switchy_inventories.inventories.preview.tooltip", presetName).asOrderedText()),
-				TooltipComponent.of(new BundleTooltipData(dList, 0)
-				)));
+			TooltipComponent.of(Feedback.translatable("switchy.modules.switchy_inventories.inventories.preview.tooltip", presetName).asOrderedText()),
+			TooltipComponent.of(new BundleTooltipData(dList, 0)
+			)));
 		return Pair.of(component, SwitchyUIPosition.GRID_RIGHT);
 	}
 

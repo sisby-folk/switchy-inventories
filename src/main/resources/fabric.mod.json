@@ -1,45 +1,45 @@
 {
-  "schemaVersion": 1,
-  "id": "${modId}",
-  "version": "${version}",
-  "name": "${modName}",
-  "description": "${modDescription}",
-  "authors": [
-    "${authors}"
-  ],
-  "contributors": [
-    "${contributors}"
-  ],
-  "contact": {
-    "homepage": "${homepage}",
-    "issues": "${issues}",
-    "sources": "${sources}"
-  },
-  "license": "${license}",
-  "icon": "assets/${modId}/icon.png",
-  "mixins": [
-    "${modId}.mixins.json"
-  ],
-  "depends": {
-    "minecraft": ">=${mc}",
-    "fabricloader": ">=${fl}",
-    "fabric-api": ">=${fapi}",
-    "switchy-core": ">=${switchy}",
-    "switchy-client": ">=${switchy}",
-    "switchy-cardinal": ">=${switchy}",
-    "switchy-ui": ">=${switchy}"
-  },
-  "entrypoints": {
-    "switchy": [
-      "folk.sisby.switchy_inventories.SwitchyInventories",
-      "folk.sisby.switchy_inventories.modules.EnderChestsModule",
-      "folk.sisby.switchy_inventories.modules.ExperienceModule",
-      "folk.sisby.switchy_inventories.modules.InventoriesModule"
-    ],
-    "switchy_client": [
-      "folk.sisby.switchy_inventories.modules.client.EnderChestsClientModule",
-      "folk.sisby.switchy_inventories.modules.client.ExperienceClientModule",
-      "folk.sisby.switchy_inventories.modules.client.InventoriesClientModule"
-    ]
-  }
+	"schemaVersion": 1,
+	"id": "${modId}",
+	"version": "${version}",
+	"name": "${modName}",
+	"description": "${modDescription}",
+	"authors": [
+		"${authors}"
+	],
+	"contributors": [
+		"${contributors}"
+	],
+	"contact": {
+		"homepage": "${homepage}",
+		"issues": "${issues}",
+		"sources": "${sources}"
+	},
+	"license": "${license}",
+	"icon": "assets/${modId}/icon.png",
+	"mixins": [
+		"${modId}.mixins.json"
+	],
+	"depends": {
+		"minecraft": ">=${mc}",
+		"fabricloader": ">=${fl}",
+		"fabric-api": ">=${fapi}",
+		"switchy-core": ">=${switchy}",
+		"switchy-client": ">=${switchy}",
+		"switchy-cardinal": ">=${switchy}",
+		"switchy-ui": ">=${switchy}"
+	},
+	"entrypoints": {
+		"switchy": [
+			"folk.sisby.switchy_inventories.SwitchyInventories",
+			"folk.sisby.switchy_inventories.modules.EnderChestsModule",
+			"folk.sisby.switchy_inventories.modules.ExperienceModule",
+			"folk.sisby.switchy_inventories.modules.InventoriesModule"
+		],
+		"switchy_client": [
+			"folk.sisby.switchy_inventories.modules.client.EnderChestsClientModule",
+			"folk.sisby.switchy_inventories.modules.client.ExperienceClientModule",
+			"folk.sisby.switchy_inventories.modules.client.InventoriesClientModule"
+		]
+	}
 }

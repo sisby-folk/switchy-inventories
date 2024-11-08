@@ -18,11 +18,11 @@ public class ExperienceClientModule extends ExperienceModuleData implements Swit
 	@Override
 	public @Nullable Pair<Component, SwitchyUIPosition> getPreviewComponent(String presetName) {
 		return Pair.of(
-				Components.label(
-								Feedback.literal("Lv. " + experienceLevel)
-										.setStyle(Style.EMPTY.withColor(Formatting.GREEN)))
-						.tooltip(Feedback.translatable("switchy.modules.switchy_inventories.experience.preview.tooltip", String.valueOf((int) (experienceProgress * 100)))),
-				SwitchyUIPosition.SIDE_RIGHT);
+			Components.label(
+					Feedback.literal("Lv. " + experienceLevel)
+						.setStyle(Style.EMPTY.withColor(Formatting.GREEN)))
+				.tooltip(Feedback.translatable("switchy.modules.switchy_inventories.experience.preview.tooltip", String.valueOf((int) (experienceProgress * 100)))),
+			SwitchyUIPosition.SIDE_RIGHT);
 	}
 
 	@Override
