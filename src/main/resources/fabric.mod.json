@@ -1,20 +1,34 @@
 {
   "schemaVersion": 1,
-  "id": "switchy-inventories",
+  "id": "${modId}",
   "version": "${version}",
-  "name": "Switchy Inventories",
-  "description": "Multiple separate inventories using Switchy",
+  "name": "${modName}",
+  "description": "${modDescription}",
   "authors": [
-    "Sisby folk"
+    "${authors}"
+  ],
+  "contributors": [
+    "${contributors}"
   ],
   "contact": {
-    "homepage": "https://modrinth.com/mod/switchy-inventories",
-    "issues": "https://github.com/sisby-folk/switchy-inventories/issues",
-    "sources": "https://github.com/sisby-folk/switchy-inventories"
+    "homepage": "${homepage}",
+    "issues": "${issues}",
+    "sources": "${sources}"
   },
-  "icon": "assets/switchy_inventories/icon.png",
-  "license": "LGPL-3.0-only",
-  "environment": "*",
+  "license": "${license}",
+  "icon": "assets/${modId}/icon.png",
+  "mixins": [
+    "${modId}.mixins.json"
+  ],
+  "depends": {
+    "minecraft": ">=${mc}",
+    "fabricloader": ">=${fl}",
+    "fabric-api": ">=${fapi}",
+    "switchy-core": ">=${switchy}",
+    "switchy-client": ">=${switchy}",
+    "switchy-cardinal": ">=${switchy}",
+    "switchy-ui": ">=${switchy}"
+  },
   "entrypoints": {
     "switchy": [
       "folk.sisby.switchy_inventories.SwitchyInventories",
@@ -27,15 +41,5 @@
       "folk.sisby.switchy_inventories.modules.client.ExperienceClientModule",
       "folk.sisby.switchy_inventories.modules.client.InventoriesClientModule"
     ]
-  },
-  "depends": {
-    "minecraft": ">=1.18.2",
-    "fabricloader": ">=0.14.9",
-    "fabric": ">=${fapi}",
-    "switchy-cardinal": ">=${switchy}",
-    "switchy-ui": ">=${switchy}"
-  },
-  "suggests": {
-    "trinkets": ">=${trinkets}"
   }
 }
