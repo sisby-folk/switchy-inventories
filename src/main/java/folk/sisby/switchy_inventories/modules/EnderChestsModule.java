@@ -13,12 +13,13 @@ import org.jetbrains.annotations.Nullable;
 public class EnderChestsModule extends EnderChestsModuleData implements SwitchyModule, SwitchyModuleTransferable, SwitchyEvents.Init {
 	@Override
 	public void updateFromPlayer(ServerPlayerEntity player, @Nullable String nextPreset) {
-		inventory.readNbtList(player.getEnderChestInventory().toNbtList());
+		inventory.clear();
+		inventory.addAll(player.getEnderChestInventory().toNbtList(player.getRegistryManager()));
 	}
 
 	@Override
 	public void applyToPlayer(ServerPlayerEntity player) {
-		player.getEnderChestInventory().readNbtList(inventory.toNbtList());
+		player.getEnderChestInventory().readNbtList(inventory, player.getRegistryManager());
 	}
 
 	@Override

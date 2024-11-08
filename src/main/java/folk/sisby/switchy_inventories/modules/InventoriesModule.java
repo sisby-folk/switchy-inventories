@@ -7,18 +7,20 @@ import folk.sisby.switchy.api.module.SwitchyModuleInfo;
 import folk.sisby.switchy.api.module.SwitchyModuleRegistry;
 import folk.sisby.switchy.api.module.SwitchyModuleTransferable;
 import folk.sisby.switchy.util.Feedback;
+import net.minecraft.nbt.NbtList;
 import net.minecraft.server.network.ServerPlayerEntity;
 import org.jetbrains.annotations.Nullable;
 
 public class InventoriesModule extends InventoriesModuleData implements SwitchyModule, SwitchyModuleTransferable, SwitchyEvents.Init {
 	@Override
 	public void updateFromPlayer(ServerPlayerEntity player, @Nullable String nextPreset) {
-		this.inventory.clone(player.getInventory());
+		this.inventory.clear();
+		this.inventory.addAll(player.getInventory().writeNbt(new NbtList()));
 	}
 
 	@Override
 	public void applyToPlayer(ServerPlayerEntity player) {
-		player.getInventory().clone(this.inventory);
+		player.getInventory().readNbt(this.inventory);
 	}
 
 	@Override

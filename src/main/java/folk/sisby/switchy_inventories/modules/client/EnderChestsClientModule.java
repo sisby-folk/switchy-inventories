@@ -11,10 +11,13 @@ import folk.sisby.switchy_inventories.modules.EnderChestsModuleData;
 import io.wispforest.owo.ui.component.Components;
 import io.wispforest.owo.ui.component.ItemComponent;
 import io.wispforest.owo.ui.core.Component;
+import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.tooltip.TooltipComponent;
-import net.minecraft.client.item.BundleTooltipData;
+import net.minecraft.component.type.BundleContentsComponent;
+import net.minecraft.inventory.EnderChestInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
+import net.minecraft.item.tooltip.BundleTooltipData;
 import net.minecraft.util.collection.DefaultedList;
 import org.jetbrains.annotations.Nullable;
 
@@ -25,11 +28,13 @@ public class EnderChestsClientModule extends EnderChestsModuleData implements Sw
 	public @Nullable Pair<Component, SwitchyUIPosition> getPreviewComponent(String presetName) {
 		if (inventory.isEmpty()) return null;
 		DefaultedList<ItemStack> dList = DefaultedList.of();
-		dList.addAll(inventory.stacks.stream().filter(i -> !i.isEmpty()).toList());
+		EnderChestInventory displayInventory = new EnderChestInventory();
+		displayInventory.readNbtList(inventory, MinecraftClient.getInstance().player.getRegistryManager());
+		dList.addAll(displayInventory.heldStacks.stream().filter(i -> !i.isEmpty()).toList());
 		ItemComponent component = Components.item(Items.ENDER_CHEST.getDefaultStack());
 		component.tooltip(List.of(
 			TooltipComponent.of(Feedback.translatable("switchy.modules.switchy_inventories.ender_chests.preview.tooltip", presetName).asOrderedText()),
-			TooltipComponent.of(new BundleTooltipData(dList, 0)
+			TooltipComponent.of(new BundleTooltipData(new BundleContentsComponent(dList))
 			)));
 		return Pair.of(component, SwitchyUIPosition.GRID_RIGHT);
 	}

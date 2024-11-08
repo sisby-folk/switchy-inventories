@@ -3,14 +3,14 @@ loom = "1.7.+"
 githubRelease = "2.4.1"
 minotaur = "2.+"
 
-mc = "1.19.2"
-fl = "0.15.0"
-yarn = "1.19.2+build.28"
-fapi = "0.76.0+1.19.2"
+mc = "1.21"
+fl = "0.15.11"
+yarn = "1.21+build.9"
+fapi = "0.101.2+1.21"
 
-switchy = "2.9.5+1.19"
+switchy = "2.9.5+1.21"
 
-trinkets = "3.4.1"
+trinkets = "3.10.0"
 
 [plugins]
 loom = { id = "fabric-loom", version.ref = "loom" }
